@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { NavSideBarComponent } from './components/nav-side-bar/nav-side-bar.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
 
+import { MatIconModule } from "@angular/material/icon";
+import { HttpClientModule } from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +17,9 @@ import { TestPageComponent } from './pages/test-page/test-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
