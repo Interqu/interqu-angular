@@ -45,3 +45,7 @@
 .page-option:hover {
     background-color: #f8f8f8;
 }
+
+.scale-300 {
+    transform: scale(3);
+}
