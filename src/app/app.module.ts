@@ -7,6 +7,9 @@ import { NavSideBarComponent } from './components/nav-side-bar/nav-side-bar.comp
 import { TestPageComponent } from './pages/test-page/test-page.component';
 import { SettingsPageComponent } from './settings-page/settings-page.component';
 
+import { MatIconModule } from "@angular/material/icon";
+import { HttpClientModule } from "@angular/common/http";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +19,9 @@ import { SettingsPageComponent } from './settings-page/settings-page.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatIconModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
