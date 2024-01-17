@@ -11,12 +11,9 @@ WORKDIR /app
 # build stage
 FROM base AS build
 
-WORKDIR /app
-
 # install dependencies
 RUN pnpm install -g @angular/cli@16
-
-RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
+RUN pnpm install 
 
 RUN ng build --aot --build-optimizer --optimization
 
