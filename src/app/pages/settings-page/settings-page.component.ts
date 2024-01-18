@@ -5,10 +5,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './settings-page.component.html',
   styleUrls: ['./settings-page.component.css']
 })
-export class SettingsPageComponent implements OnInit {
-
+export class SettingsPageComponent implements OnInit{
+  
+  
+  activeTab: string = 'firstTab';
   ngOnInit(): void {
-    this.openDefaultTab();
+    this.openTab("firstTab");
   }
 
   openTab(tabName: string): void {
@@ -21,16 +23,17 @@ export class SettingsPageComponent implements OnInit {
 
     let tablinks: HTMLCollectionOf<Element> = document.getElementsByClassName("tablinks") as HTMLCollectionOf<Element>;
     for (i = 0; i < tablinks.length; i++) {
-      (tablinks[i] as HTMLElement).className = (tablinks[i] as HTMLElement).className.replace(" active", "");
+      (tablinks[i] as HTMLElement).classList.remove('active');
     }
 
     let targetTab = document.getElementById(tabName);
     if (targetTab) {
       (targetTab as HTMLElement).style.display = "block";
     }
+    this.activeTab = tabName;
   }
 
-  openDefaultTab(): void {
-    this.openTab("defaultOpen");
+  isActiveTab(tabName: string): boolean {
+    return this.activeTab === tabName;
   }
 }
