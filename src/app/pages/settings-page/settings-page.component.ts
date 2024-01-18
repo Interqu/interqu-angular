@@ -23,7 +23,7 @@ export class SettingsPageComponent implements OnInit{
 
     let tablinks: HTMLCollectionOf<Element> = document.getElementsByClassName("tablinks") as HTMLCollectionOf<Element>;
     for (i = 0; i < tablinks.length; i++) {
-      (tablinks[i] as HTMLElement).classList.remove('active');
+      (tablinks[i] as HTMLElement).classList.remove('main-tab-active');
     }
 
     let targetTab = document.getElementById(tabName);
