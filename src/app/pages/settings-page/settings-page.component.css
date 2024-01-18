@@ -1,0 +1,65 @@
+/* Add your custom styles here */
+
+  .maincontainer{
+    margin:0;
+    height:99.9%;
+    display:flex;
+    flex-direction: row;
+    
+  }
+  
+
+  /* MENU */
+  .main-menu{
+    display:flex;
+    background-color:white;
+    height:100%;
+    width:100%;
+    margin:0;
+  }
+  
+  .main-tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: white;
+    width: 30%;
+    height: 100%;
+    border-bottom: none;
+  }
+  
+  .main-tab button {
+    display: block;
+    color: black;
+    padding: 22px 16px;
+    width: 90%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+    margin: 5%; 
+    border-radius: 1px;
+  }
+  
+  .main-tab button:hover {
+    background-color: #f8f8f8;
+  }
+  
+  .main-tab-active {
+    background-color: #caf9ff;
+    font-size: 300px;
+  }
+  
+
+  .tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    width: 80%;
+    height:100%;
+    border-left: none;
+    border-bottom:none;
+    overflow:auto;
+  } 
+  
