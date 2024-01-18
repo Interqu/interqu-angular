@@ -5,9 +5,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavSideBarComponent } from './components/nav-side-bar/nav-side-bar.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
+
+// routing fix for build
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { InterviewHistoryComponent } from './pages/interview-history/interview-history.component';
 import { InterviewListComponent } from './components/interview-list/interview-list.component';
 import { MatTableModule } from '@angular/material/table';
@@ -20,6 +24,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     AppComponent,
     NavSideBarComponent,
     TestPageComponent,
+    SettingsPageComponent,
     InterviewHistoryComponent,
   ],
   imports: [
@@ -32,7 +37,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatFormFieldModule,
     InterviewListComponent,
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
