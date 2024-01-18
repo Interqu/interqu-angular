@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavSideBarComponent } from './components/nav-side-bar/nav-side-bar.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
-import { InterviewResultsComponent } from './pages/interview-results/interview-results.component';
-import { InterviewListComponent } from './components/interview-list/interview-list.component';
 
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";

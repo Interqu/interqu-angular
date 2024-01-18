@@ -1,4 +1,4 @@
-import {LiveAnnouncer} from '@angular/cdk/a11y';
+
 import { Component } from '@angular/core';
 import { interview, dataset} from "./data";
 import { MatSort, MatSortHeader, MatSortModule, Sort} from '@angular/material/sort';
@@ -30,7 +30,6 @@ export class InterviewListComponent  implements AfterViewInit {
     if (sortState.direction=="asc") {
     } else if (sortState.direction=="desc"){
     } else{
-
     }
   }
 
