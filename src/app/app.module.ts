@@ -10,20 +10,29 @@ import { InterviewListComponent } from './components/interview-list/interview-li
 
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
+import { InterviewHistoryComponent } from './pages/interview-history/interview-history.component';
+import { InterviewListComponent } from './components/interview-list/interview-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavSideBarComponent,
     TestPageComponent,
-    InterviewResultsComponent,
-    InterviewListComponent
+    InterviewHistoryComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatSortModule,
+    MatFormFieldModule,
+    InterviewListComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
