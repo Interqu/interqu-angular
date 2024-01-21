@@ -5,25 +5,33 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavSideBarComponent } from './components/nav-side-bar/nav-side-bar.component';
 import { TestPageComponent } from './pages/test-page/test-page.component';
+import { SettingsPageComponent } from './pages/settings-page/settings-page.component';
 
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule } from '@angular/forms';
+
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+
+// routing fix for build
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavSideBarComponent,
     TestPageComponent,
-    LoginPageComponent
+    LoginPageComponent,
+    SettingsPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
