@@ -15,6 +15,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 // routing fix for build
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     TestPageComponent,
     LoginPageComponent,
     SettingsPageComponent,
+    RegisterPageComponent,
   ],
   imports: [
     BrowserModule,
