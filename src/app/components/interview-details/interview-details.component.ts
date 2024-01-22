@@ -11,10 +11,13 @@ export class InterviewDetailsComponent implements OnInit {
   constructor(private commonService: GenerateDetailsService) {}
 
   // Sample data - Replace with actual data from your service
-  bodyLanguageAndToneFeedback: string = "Your body language was positive, and your tone was clear and engaging.";
-  responsesFeedback: string = "Your responses were well-structured and thoughtful.";
-  score: number = 8;
+  bodyLanguageAndToneFeedback: string = "";
+  responsesFeedback: string = "";
+  score: number = 0.0;
   video: string = "your_video_source.mp4";
+  question: string = "";
+  date: string = "";
+  position: string = "";
 
   ngOnInit(): void {
     // Fetch interview results data from your service here
@@ -24,6 +27,9 @@ export class InterviewDetailsComponent implements OnInit {
       this.bodyLanguageAndToneFeedback = data.feedback;
       this.responsesFeedback = data.feedback;
       this.score = data.score;
+      this.position = data.position;
+      this.question = data.question;
+      this.date = data.date;
     });
   }
 

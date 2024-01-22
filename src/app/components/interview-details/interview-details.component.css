@@ -4,7 +4,7 @@
   }
   
   .interview-results-container {
-    max-width: 800px;
+    max-width: 90%;
     margin: auto;
     padding: 20px;
     background-color: #fff;
@@ -16,6 +16,19 @@
   .section {
     margin-bottom: 20px;
     padding: 10px;
+  }
+
+  .score_and_info{
+    display: flex;
+    flex-direction: row;
+  }
+
+  .score{
+    min-width: 30%;
+  }
+
+  .generalInfo{
+    min-width: 70%;
   }
   
   /* Style the video player */

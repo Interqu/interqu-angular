@@ -1,11 +1,15 @@
 <div class="maincontainer">
 <app-nav-side-bar />
   <div class="results">
+    <h1 class="text-xl font-bold text-black capitalize dark:text-white">Interview History</h1>
     <div class="table">
       <app-interview-list>loading</app-interview-list>
     </div>
-    <div class="details">
+    <ng-container *ngIf="loadDetails; else noInfo" class="details">
       <app-interview-details></app-interview-details>
-    </div>
+    </ng-container>
+    <ng-template #noInfo>
+      <p>You have no past interviews. Go to the interview page to try your first one!</p>
+    </ng-template>
   </div>
 </div>

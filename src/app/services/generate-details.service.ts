@@ -8,11 +8,14 @@ export class GenerateDetailsService {
   constructor() {}
 
   @Output() rowSelected = new EventEmitter<interview>();
+  @Output() unload = new EventEmitter();
+
+  unloadDetails(): void{
+    this.unload.emit();
+  }
 
   fillInDetails(row?: interview, isSelected?:boolean): void {
     console.log('Common function called from the service.');
-    if(isSelected){
       this.rowSelected.emit(row,);
-    }
   }
 }

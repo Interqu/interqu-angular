@@ -2,7 +2,7 @@
 import { Component } from '@angular/core';
 import { interview, dataset} from "./data";
 import { MatSort, MatSortModule} from '@angular/material/sort';
-import { ViewChild, AfterViewInit  } from '@angular/core';
+import { ViewChild, AfterViewInit, OnInit  } from '@angular/core';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import { SelectionModel } from '@angular/cdk/collections';
@@ -29,17 +29,25 @@ export class InterviewListComponent  implements AfterViewInit {
 
   @ViewChild(MatSort) sort: MatSort;
 
+  ngOnInit() {
+    if(this.interviews.length === 0){
+      this.commonService.unloadDetails();
+    }
+  }
+
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.selection.select(this.interviews[0]);
+    this.fillInDetails(this.interviews[0]);
   }
 
 
   radioLabel(row: interview): string {
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'} row ${row.position + 1}`;
+    return `${this.selection.isSelected(row) ? 'deselect' : 'select'}`;
   }
 
 
-  loadDetails(row?: interview, isSelected?:boolean){
+  fillInDetails(row?: interview, isSelected?:boolean){
     this.commonService.fillInDetails(row,isSelected);
   }
 
