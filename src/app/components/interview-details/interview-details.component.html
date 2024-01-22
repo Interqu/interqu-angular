@@ -1,0 +1,32 @@
+<div class="interview-results-container">
+
+    <!-- Interview Recording -->
+    <div class="section interviewVideo">
+      <h2>Interview Recording</h2>
+      <video controls>
+        <!-- Replace 'your_video_source.mp4' with the actual video source -->
+        <source [src]="this.video" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  
+    <!-- Body Language and Tone Feedback -->
+    <div class="section">
+      <h2>Body Language and Tone Feedback</h2>
+      <p>{{ bodyLanguageAndToneFeedback }}</p>
+    </div>
+  
+    <!-- Responses Feedback -->
+    <div class="section">
+      <h2>Responses Feedback</h2>
+      <p>{{ responsesFeedback }}</p>
+    </div>
+  
+    <!-- Rating -->
+    <div class="section">
+      <h2>Score</h2>
+      <p>Score: {{ score }}/10</p>
+    </div>
+  
+  </div>
+  

@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./interview-history.component.css']
 })
 export class InterviewHistoryComponent {
+  
 
 }

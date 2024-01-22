@@ -1,0 +1,49 @@
+/* Add Angular Material typography styles for a cleaner look */
+.mat-typography {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  }
+  
+  .interview-results-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .section {
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
+  /* Style the video player */
+  video {
+    width: 100%;
+    border-radius: 4px;
+  }
+  
+  /* Style the feedback paragraphs */
+  p {
+    line-height: 1.6;
+  }
+  
+  /* Style the rating display */
+  h2 {
+    color: #1976D2;
+  }
+  
+  /* Style the rating display */
+  p {
+    font-size: 1.2em;
+    margin: 0;
+    color: #333;
+  }
+  
+  /* Add a subtle box shadow on hover for better interaction */
+  .section:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: box-shadow 0.5s ease-in-out;
+  }

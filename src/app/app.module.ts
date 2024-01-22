@@ -16,7 +16,7 @@ import { InterviewHistoryComponent } from './pages/interview-history/interview-h
 import { InterviewListComponent } from './components/interview-list/interview-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
-import { MatFormFieldModule } from '@angular/material/form-field';
+import { InterviewDetailsComponent } from './components/interview-details/interview-details.component';
 
 
 @NgModule({
@@ -26,6 +26,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     TestPageComponent,
     SettingsPageComponent,
     InterviewHistoryComponent,
+    InterviewDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,7 +35,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HttpClientModule,
     MatTableModule,
     MatSortModule,
-    MatFormFieldModule,
     InterviewListComponent,
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
