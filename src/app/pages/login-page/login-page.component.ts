@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-page',
@@ -7,4 +7,24 @@ import { FormsModule, NgForm } from '@angular/forms';
   styleUrls: ['./login-page.component.css']
 })
 export class LoginPageComponent {
+  emailForm: FormGroup;
+
+  constructor() {
+    this.emailForm = new FormGroup({
+      email: new FormControl('', [Validators.required, Validators.email])
+    });
+  }
+
+  onSubmit() {
+    if (this.emailForm.valid) {
+      console.log('Form Data:', this.emailForm.value);
+      // Process your form data
+    } else {
+      console.log('Form is not valid!');
+    }
+  }
+
+  get email() {
+    return this.emailForm.get('email');
+  }
 }
