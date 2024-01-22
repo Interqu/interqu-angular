@@ -12,21 +12,23 @@ import { HttpClientModule } from "@angular/common/http";
 
 // routing fix for build
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavSideBarComponent,
     TestPageComponent,
-    SettingsPageComponent
+    SettingsPageComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule,
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
