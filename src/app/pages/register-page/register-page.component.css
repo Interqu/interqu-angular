@@ -1,3 +1,7 @@
 .bg-register {
     background-size: 400%
 }
+
+.error-message {
+    color: red;
+}

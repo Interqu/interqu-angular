@@ -9,7 +9,7 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
 
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 
@@ -31,7 +31,8 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     AppRoutingModule,
     MatIconModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
