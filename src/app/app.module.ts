@@ -12,13 +12,15 @@ import { HttpClientModule } from "@angular/common/http";
 
 // routing fix for build
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavSideBarComponent,
     TestPageComponent,
-    SettingsPageComponent
+    SettingsPageComponent,
+    DashboardPageComponent
   ],
   imports: [
     BrowserModule,
