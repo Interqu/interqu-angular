@@ -13,6 +13,7 @@ import { HttpClientModule } from "@angular/common/http";
 // routing fix for build
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ExpiredPageComponent } from './pages/expired-page/expired-page.componen
     NavSideBarComponent,
     TestPageComponent,
     SettingsPageComponent,
-    ExpiredPageComponent
+    ExpiredPageComponent,
+    DashboardPageComponent
   ],
   imports: [
     BrowserModule,
