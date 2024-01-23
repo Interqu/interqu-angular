@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { faCoffee, faComments, faHistory, faLineChart, faTachometer, faUserSecret } from '@fortawesome/free-solid-svg-icons';
+import { faComments, faHistory, faLineChart } from '@fortawesome/free-solid-svg-icons';
 
 interface SideBarEntry {
   name: string,
@@ -22,17 +22,17 @@ export class NavSideBarComponent {
     // },
     {
       name: "Interviews",
-      href: "/interviews",
+      href: "/user/interviews",
       faIcon: faComments
     },
     {
       name: "Performance",
-      href: "/performance",
+      href: "/user/performance",
       faIcon: faLineChart
     },
     {
       name: "History",
-      href: "/history",
+      href: "/user/history",
       faIcon: faHistory
     },
   ]
