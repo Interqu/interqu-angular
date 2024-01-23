@@ -5,6 +5,17 @@ module.exports = {
   ],
   theme: {
     extend: {
+      backgroundSize: {
+        'size-200': '200% 200%',
+        'auto': 'auto',
+        'cover': 'cover',
+        'contain': 'contain',
+        '400': '400%',
+      },
+      backgroundPosition: {
+        'pos-0': '0% 0%',
+        'pos-100': '100% 100%',
+      },
       animation: {
         "fade-in": "fadeIn ease-in-out 2s",
         "bg-slide": "bgSlide ease 30s infinite"
@@ -20,12 +31,6 @@ module.exports = {
         }
       }
     },
-  },
-  backgroundSize: {
-    'auto': 'auto',
-    'cover': 'cover',
-    'contain': 'contain',
-    '400': '400%',
   },
   plugins: [],
 }

@@ -15,6 +15,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 // routing fix for build
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
@@ -24,8 +25,8 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     AppComponent,
     NavSideBarComponent,
     TestPageComponent,
-    LoginPageComponent,
     SettingsPageComponent,
+    LoginPageComponent,
     RegisterPageComponent,
     ExpiredPageComponent,
     DashboardPageComponent
@@ -35,6 +36,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     AppRoutingModule,
     MatIconModule,
     HttpClientModule,
+    FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
   ],
