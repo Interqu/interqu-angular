@@ -9,9 +9,13 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
 
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 // routing fix for build
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 
@@ -20,7 +24,9 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     AppComponent,
     NavSideBarComponent,
     TestPageComponent,
+    LoginPageComponent,
     SettingsPageComponent,
+    RegisterPageComponent,
     ExpiredPageComponent,
     DashboardPageComponent
   ],
@@ -28,9 +34,11 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
