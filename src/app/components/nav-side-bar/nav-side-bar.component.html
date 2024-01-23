@@ -25,7 +25,7 @@
 
                     <li *ngFor="let item of sideBarEntries" class="min-w-max">
                         <a [href]="item.href" aria-label="dashboard"
-                            class="bg group flex items-center space-x-4 rounded-full px-4 py-3 text-gray-600">
+                            class="bg group flex items-center space-x-4 px-4 py-3 align-middle text-gray-600 transition-all duration-500 bg-gradient-to-r hover:to-blue-300 via-gray-100 hover:via-white hover:from-white bg-size-200 bg-pos-0 hover:bg-pos-100">
                             <fa-icon [icon]="item.faIcon"
                                 class="ml-0.5 -mr-0.5 h-5 w-5 group-hover:text-cyan-300"></fa-icon>
                             <span class="group-hover:text-gray-700">{{item.name}}</span>
