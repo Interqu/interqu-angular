@@ -9,10 +9,16 @@ import { SettingsPageComponent } from './pages/settings-page/settings-page.compo
 
 import { MatIconModule } from "@angular/material/icon";
 import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { LoginPageComponent } from './pages/login-page/login-page.component';
 
 // routing fix for build
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
+import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +26,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NavSideBarComponent,
     TestPageComponent,
     SettingsPageComponent,
+    LoginPageComponent,
+    RegisterPageComponent,
+    ExpiredPageComponent,
+    DashboardPageComponent
   ],
   imports: [
     BrowserModule,
@@ -27,6 +37,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MatIconModule,
     HttpClientModule,
     FontAwesomeModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]
