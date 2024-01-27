@@ -14,6 +14,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     TestPageComponent,
     SettingsPageComponent,
     ExpiredPageComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
