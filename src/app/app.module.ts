@@ -12,11 +12,12 @@ import { HttpClientModule } from "@angular/common/http";
 
 // routing fix for build
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { InterviewHistoryComponent } from './pages/interview-history/interview-history.component';
 import { InterviewListComponent } from './components/interview-list/interview-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { InterviewDetailsComponent } from './components/interview-details/interview-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
 
 
 @NgModule({
@@ -25,8 +26,8 @@ import { InterviewDetailsComponent } from './components/interview-details/interv
     NavSideBarComponent,
     TestPageComponent,
     SettingsPageComponent,
-    InterviewHistoryComponent,
     InterviewDetailsComponent,
+    InterviewListComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ import { InterviewDetailsComponent } from './components/interview-details/interv
     HttpClientModule,
     MatTableModule,
     MatSortModule,
-    InterviewListComponent,
+    BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

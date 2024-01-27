@@ -1,28 +1,27 @@
 <div class="interview-results-container">
 
-    <!-- Interview Recording -->
-    <div class="section interviewVideo">
-      <video controls>
-        <!-- Replace 'your_video_source.mp4' with the actual video source -->
-        <source [src]="this.video" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+    <div class="overview">
+        <!-- Interview Recording -->
+        <div class="section interviewVideo">
+          <video controls>
+            <source [src]="this.video" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
-    <!-- Score -->
-    <div class="score_and_info">
-        <div class="section score">
-            <h2>Score</h2>
-            <p>Score: </p><p>{{ score }}/10</p>
-        </div>
-        <div class="section generalInfo">
-            <h2>General Info</h2>
-            <p>Date: {{ date }}</p>
-            <p>Question: {{ question }}</p>
-            <p>Position: {{ position }}</p>
+        <div class="score_and_info">
+            <div class="section score">
+                <h2>Score</h2>
+                <p>Score: </p><p>{{ score }}/10</p>
+            </div>
+            <div class="section generalInfo">
+                <h2>General Info</h2>
+                <p>Date: {{ date }}</p>
+                <p>Question: {{ question }}</p>
+                <p>Position: {{ position }}</p>
+            </div>
         </div>
     </div>
-    
   
     <!-- Body Language and Tone Feedback -->
     <div class="section">

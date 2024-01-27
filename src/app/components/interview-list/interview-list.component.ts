@@ -1,13 +1,14 @@
 
 import { Component } from '@angular/core';
 import { interview, dataset} from "./data";
-import { MatSort, MatSortModule} from '@angular/material/sort';
-import { ViewChild, AfterViewInit, OnInit  } from '@angular/core';
-import {MatTableDataSource, MatTableModule} from '@angular/material/table';
-import {MatInputModule} from '@angular/material/input';
+import { MatSort, Sort, MatSortModule} from '@angular/material/sort';
+import { ViewChild} from '@angular/core';
+import {MatTableDataSource} from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
-import {MatRadioModule} from '@angular/material/radio';
-import { GenerateDetailsService } from 'src/app/services/generate-details.service';
+
+import {animate, state, style, transition, trigger} from '@angular/animations';
+
+
 
 
  
@@ -16,43 +17,37 @@ import { GenerateDetailsService } from 'src/app/services/generate-details.servic
   selector: 'app-interview-list',
   templateUrl: './interview-list.component.html',
   styleUrls: ['./interview-list.component.css'],
-  standalone: true,
-  imports: [MatTableModule, MatSortModule, MatInputModule, MatRadioModule],
+  animations: [
+    trigger('detailExpand', [
+      state('collapsed', style({height: '0px', minHeight: '0'})),
+      state('expanded', style({height: '*'})),
+      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+    ]),
+  ],
+
 })
-export class InterviewListComponent  implements AfterViewInit {
+export class InterviewListComponent {
   interviews: interview[] = dataset;
-  displayedColumns: string[] = ['select', 'id', 'date', 'question', 'position','score','feedback'];
+  columnsToDisplay = ['ID', 'Date', 'Question', 'Position','Score','Feedback'];
+  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
+  expandedElement: interview | null;
   dataSource = new MatTableDataSource<interview>( this.interviews )
   selection = new SelectionModel<interview>(true, []);
-  constructor(private commonService: GenerateDetailsService) {}
 
 
   @ViewChild(MatSort) sort: MatSort;
 
-  ngOnInit() {
-    if(this.interviews.length === 0){
-      this.commonService.unloadDetails();
-    }
-  }
-
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
-    this.selection.select(this.interviews[0]);
-    this.fillInDetails(this.interviews[0]);
   }
 
-
-  radioLabel(row: interview): string {
-    return `${this.selection.isSelected(row) ? 'deselect' : 'select'}`;
-  }
-
-
-  fillInDetails(row?: interview, isSelected?:boolean){
-    this.commonService.fillInDetails(row,isSelected);
-  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  sortData(sort: Sort) {
+    console.log("Hello");
   }
 }

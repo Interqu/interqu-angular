@@ -18,23 +18,28 @@
     padding: 10px;
   }
 
-  .score_and_info{
-    display: flex;
+  .overview{
+    display:flex;
     flex-direction: row;
   }
 
   .score{
-    min-width: 30%;
+    width: 100%
   }
 
   .generalInfo{
-    min-width: 70%;
+    width: 100%;
   }
   
   /* Style the video player */
-  video {
-    width: 100%;
+  .interviewVideo {
+    width: 65%;
+    height: 100%;
     border-radius: 4px;
+  }
+
+  video{
+    width: 100%
   }
   
   /* Style the feedback paragraphs */
