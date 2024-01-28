@@ -22,6 +22,12 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 
+//security
+import { AuthService } from './services/authentication/AuthService';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/authentication/AuthInterceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +38,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     LoginPageComponent,
     RegisterPageComponent,
     ExpiredPageComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +49,13 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    AuthService,
+    JwtHelperService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

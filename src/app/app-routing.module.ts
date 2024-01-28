@@ -7,18 +7,18 @@ import { VerificationSuccessComponent } from './pages/verification-success/verif
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { AuthGuard } from './auth.guard';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
   { path: 'test', component: TestPageComponent },
-  { path: 'settings', component: SettingsPageComponent },
   { path: 'verification-success', component: VerificationSuccessComponent },
-  { path: "login", component: LoginPageComponent },
-  { path: "register", component: RegisterPageComponent },
-  { path: 'settings', component: SettingsPageComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
   {
     path: 'user',
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard',
