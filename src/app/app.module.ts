@@ -21,6 +21,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { InterviewResultsComponent } from './pages/interview-results/interview-results.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     LoginPageComponent,
     RegisterPageComponent,
     ExpiredPageComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
+    InterviewResultsComponent
   ],
   imports: [
     BrowserModule,

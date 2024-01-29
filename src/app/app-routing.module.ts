@@ -7,6 +7,7 @@ import { VerificationSuccessComponent } from './pages/verification-success/verif
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { InterviewResultsComponent } from './pages/interview-results/interview-results.component';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
@@ -28,6 +29,10 @@ const routes: Routes = [
         path: 'settings',
         component: SettingsPageComponent,
       },
+      {
+        path: 'results',
+        component: InterviewResultsComponent,
+      },
     ],
   },
 ];
@@ -36,4 +41,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
