@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { interview } from '../interview-list/data';
+import { interview } from '../../pages/interview-history/data';
 
 @Component({
   selector: 'app-interview-details',

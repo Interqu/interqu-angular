@@ -1,5 +1,7 @@
-table {
+.table {
   width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
 }
 
 tr.example-detail-row {
@@ -51,5 +53,11 @@ p {
 
 h1 {
   text-align: center;
-  padding-top:40px
+  padding-top:40px;
+  font-size: 40px;
+}
+
+.searchBar {
+  padding-left:4%;
+  padding-top:4%;
 }

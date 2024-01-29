@@ -12,7 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 // routing fix for build
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { InterviewListComponent } from './components/interview-list/interview-list.component';
+import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { InterviewDetailsComponent } from './components/interview-details/interview-details.component';
