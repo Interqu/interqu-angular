@@ -7,6 +7,7 @@ import { VerificationSuccessComponent } from './pages/verification-success/verif
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { AuthGuard } from './auth.guard';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 
@@ -16,14 +17,14 @@ const routes: Routes = [
   { path: 'settings', component: SettingsPageComponent },
   { path: 'history', component: InterviewListComponent },
   { path: 'verification-success', component: VerificationSuccessComponent },
-  { path: "login", component: LoginPageComponent },
-  { path: "register", component: RegisterPageComponent },
-  { path: 'settings', component: SettingsPageComponent },
+  { path: 'login', component: LoginPageComponent },
+  { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
   { path: 'error', component: ErrorPageComponent },
 
   {
     path: 'user',
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard',

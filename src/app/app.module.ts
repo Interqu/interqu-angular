@@ -29,6 +29,12 @@ import { InterviewDetailsComponent } from './components/interview-details/interv
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 
+//security
+import { AuthService } from './services/authentication/AuthService';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/authentication/AuthInterceptor';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +63,13 @@ import {MatInputModule} from '@angular/material/input';
     BrowserAnimationsModule,
     MatInputModule
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    AuthService,
+    JwtHelperService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

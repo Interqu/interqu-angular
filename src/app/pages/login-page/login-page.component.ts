@@ -1,30 +1,59 @@
-import { Component, ViewChild } from '@angular/core';
-import { FormControl, FormGroup, FormsModule, NgForm, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/authentication/AuthService';
+import { environment } from 'src/environments/environments';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
-  styleUrls: ['./login-page.component.css']
+  styleUrls: ['./login-page.component.css'],
 })
 export class LoginPageComponent {
   emailForm: FormGroup;
 
-  constructor() {
+  constructor(private router: Router, private authService: AuthService) {
     this.emailForm = new FormGroup({
-      email: new FormControl('', [Validators.required, Validators.email])
+      email: new FormControl('', [Validators.required, Validators.email]),
+      password: new FormControl('', [Validators.required]),
     });
   }
 
   onSubmit() {
     if (this.emailForm.valid) {
-      console.log('Form Data:', this.emailForm.value);
-      // Process your form data
+      this.login();
     } else {
-      console.log('Form is not valid!');
+      //TODO form not valid.
     }
+  }
+
+  login(): void {
+    let email: string = this.emailForm.value.email;
+    let password: string = this.emailForm.value.password;
+    let credentials = { email: email, password: password };
+    this.authService.login(credentials).subscribe(
+      () => {
+        const redirectUrl =
+          localStorage.getItem(environment.interqu_redirectUrl_key) ||
+          '/user/dashboard';
+        localStorage.removeItem(environment.interqu_redirectUrl_key); // Clear the stored URL
+        this.router.navigateByUrl(redirectUrl); // Redirect to the stored URL
+      },
+      (err) => {
+        if (err.status == 403) {
+          //TODO handle invalid credentials error.
+        } else {
+          //TODO handle unexpected error here
+        }
+      }
+    );
   }
 
   get email() {
     return this.emailForm.get('email');
+  }
+
+  get password() {
+    return this.emailForm.get('password');
   }
 }

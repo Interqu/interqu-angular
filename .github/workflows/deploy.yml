@@ -35,7 +35,6 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: lefanhu/interqu-angular-app:latest
-  
   deploy:
     runs-on: ubuntu-latest
     needs: build
@@ -51,5 +50,6 @@ jobs:
             cd interqu
             docker compose down
             docker compose pull
+            docker compose down
             docker compose up -d
             docker ps
