@@ -8,14 +8,20 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { AuthGuard } from './auth.guard';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
   { path: 'test', component: TestPageComponent },
+  { path: 'settings', component: SettingsPageComponent },
+  { path: 'history', component: InterviewListComponent },
   { path: 'verification-success', component: VerificationSuccessComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
+  { path: 'error', component: ErrorPageComponent },
+
   {
     path: 'user',
     canActivate: [AuthGuard],
