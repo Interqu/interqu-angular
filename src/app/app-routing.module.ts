@@ -7,6 +7,7 @@ import { VerificationSuccessComponent } from './pages/verification-success/verif
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 
 const routes: Routes = [
@@ -19,6 +20,8 @@ const routes: Routes = [
   { path: "register", component: RegisterPageComponent },
   { path: 'settings', component: SettingsPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
+  { path: 'error', component: ErrorPageComponent },
+
   {
     path: 'user',
     children: [

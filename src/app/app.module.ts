@@ -21,13 +21,13 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { InterviewDetailsComponent } from './components/interview-details/interview-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
-
 
 @NgModule({
   declarations: [
@@ -41,7 +41,8 @@ import {MatInputModule} from '@angular/material/input';
     LoginPageComponent,
     RegisterPageComponent,
     ExpiredPageComponent,
-    DashboardPageComponent
+    DashboardPageComponent,
+    ErrorPageComponent
   ],
   imports: [
     BrowserModule,
