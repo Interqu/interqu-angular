@@ -21,6 +21,13 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { InterviewListComponent } from './pages/interview-history/interview-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { InterviewDetailsComponent } from './components/interview-details/interview-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatInputModule} from '@angular/material/input';
+
 
 @NgModule({
   declarations: [
@@ -28,6 +35,8 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     NavSideBarComponent,
     TestPageComponent,
     SettingsPageComponent,
+    InterviewDetailsComponent,
+    InterviewListComponent,
     VerificationSuccessComponent,
     LoginPageComponent,
     RegisterPageComponent,
@@ -42,6 +51,10 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatSortModule,
+    BrowserAnimationsModule,
+    MatInputModule
   ],
   providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
   bootstrap: [AppComponent]

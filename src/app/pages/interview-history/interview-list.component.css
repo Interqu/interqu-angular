@@ -1,0 +1,63 @@
+.table {
+  width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+}
+
+
+
+
+.maincontainer{
+  margin:0;
+  height:99.9%;
+  display:flex;
+  flex-direction: row;
+}
+
+.results{
+  display:flex;
+  flex-direction: column;
+  background-color:white;
+  height:100%;
+  width:100%;
+  margin:0;
+}
+
+p {
+  line-height: 1.6;
+  font-size: 1.2em;
+  margin: 0;
+  color: #333;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  padding-top:40px;
+  font-size: 40px;
+}
+
+.searchBar {
+  padding-left:4%;
+  padding-top:4%;
+}
