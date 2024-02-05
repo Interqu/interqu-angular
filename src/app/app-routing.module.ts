@@ -14,9 +14,7 @@ import { InterviewListComponent } from './pages/interview-history/interview-list
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
   { path: 'test', component: TestPageComponent },
-  { path: 'settings', component: SettingsPageComponent },
-  { path: 'history', component: InterviewListComponent },
-  { path: 'verification-success', component: VerificationSuccessComponent },
+  // { path: 'settings', component: SettingsPageComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
@@ -34,6 +32,10 @@ const routes: Routes = [
         path: 'settings',
         component: SettingsPageComponent,
       },
+      { path: 'history', 
+      component: InterviewListComponent ,
+      },
+
     ],
   },
 ];
