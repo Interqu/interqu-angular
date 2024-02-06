@@ -10,17 +10,18 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import { AuthGuard } from './auth.guard';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
   { path: 'test', component: TestPageComponent },
-  { path: 'settings', component: SettingsPageComponent },
-  { path: 'history', component: InterviewListComponent },
   { path: 'verification-success', component: VerificationSuccessComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
   { path: 'error', component: ErrorPageComponent },
+  { path: 'error', component: ErrorPageComponent },
+  { path: '', component: HomePageComponent},
 
   {
     path: 'user',
@@ -28,12 +29,16 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: DashboardPageComponent,
+        component: DashboardPageComponent
       },
       {
         path: 'settings',
-        component: SettingsPageComponent,
+        component: SettingsPageComponent
       },
+      { path: 'history', 
+        component: InterviewListComponent
+      },
+
     ],
   },
 ];
