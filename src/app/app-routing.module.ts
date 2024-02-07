@@ -22,7 +22,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
   { path: 'error', component: ErrorPageComponent },
-  { path: 'practice', component: InterviewPracticeComponent },
   {
     path: 'user',
     canActivate: [AuthGuard],
@@ -34,6 +33,10 @@ const routes: Routes = [
       {
         path: 'settings',
         component: SettingsPageComponent,
+      },
+      {
+        path: 'practice', 
+        component: InterviewPracticeComponent,
       },
     ],
   },
