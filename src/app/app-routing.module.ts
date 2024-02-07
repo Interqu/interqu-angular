@@ -10,6 +10,7 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import { AuthGuard } from './auth.guard';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
+import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
@@ -21,7 +22,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
   { path: 'error', component: ErrorPageComponent },
-
+  { path: 'practice', component: InterviewPracticeComponent },
   {
     path: 'user',
     canActivate: [AuthGuard],
