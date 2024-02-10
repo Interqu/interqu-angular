@@ -56,9 +56,7 @@ export class NavSideBarComponent {
     document.getElementById("screen-fader")?.classList.add("opacity-50");
     document.getElementById("check-logout")?.classList.add("opacity-100");
    
-    // this.postLogout().subscribe(response => {
-    //   this.data = response;
-    // });
+   
   }
 
   yesLogout(): void {
@@ -71,16 +69,4 @@ export class NavSideBarComponent {
     document.getElementById("screen-fader")?.classList.remove("opacity-50");
     document.getElementById("check-logout")?.classList.remove("opacity-100");
   }
-  // postLogout(): Observable<any> {
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json', // Content type for JSON
-  //   });
-  //   return this.http.post<any>( 
-  //     environment.interqu_backend_server_url +
-  //     "/api/user/logout",
-  //     {
-  //       headers: headers,
-  //     }
-  //     );
-  // }
 }
