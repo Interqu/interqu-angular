@@ -37,6 +37,8 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/authentication/AuthInterceptor';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { InterviewSelectComponent } from './pages/interview-select/interview-select.component';
+import { SearchBarTopComponent } from './components/search-bar-top/search-bar-top.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     ErrorPageComponent,
     HomePageComponent,
     InterviewPracticeComponent,
+    SearchBarTopComponent,
   ],
   imports: [
     BrowserModule,
