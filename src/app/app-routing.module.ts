@@ -10,27 +10,33 @@ import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.co
 import { AuthGuard } from './auth.guard';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
   { path: 'test', component: TestPageComponent },
-  // { path: 'settings', component: SettingsPageComponent },
+  { path: 'verification-success', component: VerificationSuccessComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
   { path: 'error', component: ErrorPageComponent },
+  { path: 'error', component: ErrorPageComponent },
+  { path: '', component: HomePageComponent},
   {
     path: 'user',
     canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard',
-        component: DashboardPageComponent,
+        component: DashboardPageComponent
       },
       {
         path: 'settings',
-        component: SettingsPageComponent,
+        component: SettingsPageComponent
+      },
+      { path: 'history', 
+        component: InterviewListComponent
       },
       { path: 'history', 
       component: InterviewListComponent ,
