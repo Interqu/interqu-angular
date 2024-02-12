@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environments';
+
 
 @Component({
   selector: 'app-settings-page',
@@ -6,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./settings-page.component.css'],
 })
 export class SettingsPageComponent implements OnInit {
+
+  data: any;
+
+  constructor(private http: HttpClient) { }
+
   activeTab: string = 'firstTab';
   ngOnInit(): void {
     this.openTab('firstTab');
+    this.getUserInfo();
   }
 
   openTab(tabName: string): void {
@@ -36,5 +46,27 @@ export class SettingsPageComponent implements OnInit {
 
   isActiveTab(tabName: string): boolean {
     return this.activeTab === tabName;
+  }
+
+  getUserInfo(){
+    
+    this.getData().subscribe(response => {
+      this.data = response;
+    });
+  }
+  getData(): Observable<any> {
+    const token = localStorage.getItem(environment.interqu_secure_token_key);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json', 
+      'Authorization': 'Bearer ' + token,
+    });
+    return this.http.get<any>( 
+      environment.interqu_backend_server_url +
+      '/api/user/getInfo',
+      {
+        headers: headers,
+      }
+      );
   }
 }
