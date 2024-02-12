@@ -35,6 +35,7 @@ import { AuthService } from './services/authentication/AuthService';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/authentication/AuthInterceptor';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { AuthInterceptor } from './services/authentication/AuthInterceptor';
     ExpiredPageComponent,
     DashboardPageComponent,
     ErrorPageComponent,
-    InterviewPracticeComponent
+    HomePageComponent
+    InterviewPracticeComponen
   ],
   imports: [
     BrowserModule,
