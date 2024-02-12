@@ -63,3 +63,27 @@
     overflow:auto;
   } 
   
+
+  .file-upload {
+    cursor: pointer;
+  }
+  .file-upload:hover {
+    color: #4f46e5; /* Replace with your desired color value */
+  }
+  
+  /* Normal CSS for focus-within state */
+  .file-upload:focus-within {
+    outline: none; /* Remove outline on focus */
+  }
+  
+  .file-upload:focus-within {
+    box-shadow: 0 0 0 2px rgba(66, 153, 225, 0.5); /* Replace with your desired shadow */
+  }
+  
+  .file-upload:focus-within {
+    outline-offset: 2px; /* Offset outline */
+  }
+  
+  .file-upload:focus-within {
+    border-color: #4f46e5; /* Replace with your desired color value */
+  }

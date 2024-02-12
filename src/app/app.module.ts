@@ -28,6 +28,7 @@ import { MatSortModule } from '@angular/material/sort';
 import { InterviewDetailsComponent } from './components/interview-details/interview-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
+import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
 
 //security
 import { AuthService } from './services/authentication/AuthService';
@@ -51,6 +52,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     DashboardPageComponent,
     ErrorPageComponent,
     HomePageComponent
+    InterviewPracticeComponen
   ],
   imports: [
     BrowserModule,

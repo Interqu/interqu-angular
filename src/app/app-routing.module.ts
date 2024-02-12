@@ -11,6 +11,7 @@ import { AuthGuard } from './auth.guard';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
@@ -22,7 +23,6 @@ const routes: Routes = [
   { path: 'error', component: ErrorPageComponent },
   { path: 'error', component: ErrorPageComponent },
   { path: '', component: HomePageComponent},
-
   {
     path: 'user',
     canActivate: [AuthGuard],
@@ -38,7 +38,14 @@ const routes: Routes = [
       { path: 'history', 
         component: InterviewListComponent
       },
+      { path: 'history', 
+      component: InterviewListComponent ,
+      },
 
+      {
+        path: 'practice', 
+        component: InterviewPracticeComponent,
+      },
     ],
   },
 ];
