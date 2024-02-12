@@ -27,7 +27,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { InterviewDetailsComponent } from './components/interview-details/interview-details.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule} from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
 import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
 
 //security
@@ -51,8 +51,8 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     ExpiredPageComponent,
     DashboardPageComponent,
     ErrorPageComponent,
-    HomePageComponent
-    InterviewPracticeComponen
+    HomePageComponent,
+    InterviewPracticeComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,7 +65,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     MatTableModule,
     MatSortModule,
     BrowserAnimationsModule,
-    MatInputModule
+    MatInputModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },
