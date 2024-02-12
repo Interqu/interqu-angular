@@ -22,6 +22,21 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
 import { InterviewResultsComponent } from './pages/interview-results/interview-results.component';
+import { ErrorPageComponent } from './pages/error-page/error-page.component';
+import { InterviewListComponent } from './pages/interview-history/interview-list.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort';
+import { InterviewDetailsComponent } from './components/interview-details/interview-details.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
+
+//security
+import { AuthService } from './services/authentication/AuthService';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from './services/authentication/AuthInterceptor';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +44,17 @@ import { InterviewResultsComponent } from './pages/interview-results/interview-r
     NavSideBarComponent,
     TestPageComponent,
     SettingsPageComponent,
+    InterviewDetailsComponent,
+    InterviewListComponent,
     VerificationSuccessComponent,
     LoginPageComponent,
     RegisterPageComponent,
     ExpiredPageComponent,
     DashboardPageComponent,
-    InterviewResultsComponent
+    InterviewResultsComponent,
+    ErrorPageComponent,
+    HomePageComponent,
+    InterviewPracticeComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,8 +64,18 @@ import { InterviewResultsComponent } from './pages/interview-results/interview-r
     FontAwesomeModule,
     FormsModule,
     ReactiveFormsModule,
+    MatTableModule,
+    MatSortModule,
+    BrowserAnimationsModule,
+    MatInputModule,
   ],
-  providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }],
-  bootstrap: [AppComponent]
+  providers: [
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    AuthService,
+    JwtHelperService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,0 +1,17 @@
+<div class="maincontainer">
+    <video id="video" autoplay></video>
+    <div class="progress-bar">
+        <div class="progress-bar-fill"></div>
+    </div>
+    <div id="question">{{ questionData.Question }}</div>
+    <button id="access-camera" (click)="accessCamera()">Access Camera</button>
+    <button id="record-btn" (click)="recordBtnClick()">Record</button>
+    <button id="stop-btn" (click)="stopBtnClick()" style="display: none;">Stop</button>
+    <button id="restart-btn" (click)="restartBtnClick()" style="display: none;">Restart</button>
+    <button id="submit-btn" (click)="submitBtnClick()" style="display: none;">Submit</button>
+    <div id="countdown" style="display: none;">
+      <span id="countdown-num"></span>
+    </div>
+    <div id="time"></div>
+  </div>
+  
