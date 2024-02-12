@@ -7,6 +7,7 @@ import { VerificationSuccessComponent } from './pages/verification-success/verif
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { InterviewResultsComponent } from './pages/interview-results/interview-results.component';
 import { AuthGuard } from './auth.guard';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
@@ -22,7 +23,7 @@ const routes: Routes = [
   { path: 'expired', component: ExpiredPageComponent },
   { path: 'error', component: ErrorPageComponent },
   { path: 'error', component: ErrorPageComponent },
-  { path: '', component: HomePageComponent},
+  { path: '', component: HomePageComponent },
   {
     path: 'user',
     canActivate: [AuthGuard],
@@ -35,16 +36,22 @@ const routes: Routes = [
         path: 'settings',
         component: SettingsPageComponent
       },
-      { path: 'history', 
+      {
+        path: 'history',
         component: InterviewListComponent
       },
-      { path: 'history', 
-      component: InterviewListComponent ,
+      {
+        path: 'history',
+        component: InterviewListComponent,
       },
 
       {
-        path: 'practice', 
+        path: 'practice',
         component: InterviewPracticeComponent,
+      },
+      {
+        path: 'results',
+        component: InterviewResultsComponent,
       },
     ],
   },
@@ -54,4 +61,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

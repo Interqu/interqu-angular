@@ -21,6 +21,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ExpiredPageComponent } from './pages/expired-page/expired-page.component';
 import { DashboardPageComponent } from './pages/dashboard-page/dashboard-page.component';
+import { InterviewResultsComponent } from './pages/interview-results/interview-results.component';
 import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 import { MatTableModule } from '@angular/material/table';
@@ -50,6 +51,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     RegisterPageComponent,
     ExpiredPageComponent,
     DashboardPageComponent,
+    InterviewResultsComponent,
     ErrorPageComponent,
     HomePageComponent,
     InterviewPracticeComponent,
@@ -76,4 +78,4 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
