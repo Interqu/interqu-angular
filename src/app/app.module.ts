@@ -39,6 +39,7 @@ import { AuthInterceptor } from './services/authentication/AuthInterceptor';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InterviewSelectComponent } from './pages/interview-select/interview-select.component';
 import { SearchBarTopComponent } from './components/search-bar-top/search-bar-top.component';
+import { InterviewCardComponent } from './components/interview-card/interview-card.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,9 @@ import { SearchBarTopComponent } from './components/search-bar-top/search-bar-to
     ErrorPageComponent,
     HomePageComponent,
     InterviewPracticeComponent,
+    InterviewSelectComponent,
     SearchBarTopComponent,
+    InterviewCardComponent,
   ],
   imports: [
     BrowserModule,

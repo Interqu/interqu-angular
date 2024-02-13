@@ -13,6 +13,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
+import { InterviewSelectComponent } from './pages/interview-select/interview-select.component';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
@@ -21,7 +22,6 @@ const routes: Routes = [
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
-  { path: 'error', component: ErrorPageComponent },
   { path: 'error', component: ErrorPageComponent },
   { path: '', component: HomePageComponent },
   {
@@ -52,6 +52,10 @@ const routes: Routes = [
       {
         path: 'results',
         component: InterviewResultsComponent,
+      },
+      {
+        path: 'interview-browse',
+        component: InterviewSelectComponent,
       },
     ],
   },
