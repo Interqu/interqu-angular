@@ -10,7 +10,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 // routing fix for build
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { PathLocationStrategy, LocationStrategy } from '@angular/common';
 
 // components
 import { NavSideBarComponent } from './components/nav-side-bar/nav-side-bar.component';
@@ -70,7 +70,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
     MatInputModule,
   ],
   providers: [
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
     AuthService,
     JwtHelperService,
     { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
@@ -78,4 +78,4 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
