@@ -5,6 +5,9 @@ import { MatSort, Sort, MatSortModule} from '@angular/material/sort';
 import { ViewChild} from '@angular/core';
 import {MatTableDataSource} from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environments';
 
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
@@ -34,11 +37,14 @@ export class InterviewListComponent {
   dataSource = new MatTableDataSource<interview>( this.interviews )
   selection = new SelectionModel<interview>(true, []);
 
+  constructor(private http: HttpClient) {}
+
 
   @ViewChild(MatSort) sort: MatSort;
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
+    this.GetData();
   }
 
 
@@ -49,5 +55,25 @@ export class InterviewListComponent {
 
   sortData(sort: Sort) {
     console.log("Hello");
+  }
+
+  GetData(): Observable<any> {
+    const token = localStorage.getItem(environment.interqu_secure_token_key);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json', // Content type for JSON
+      Authorization: 'Bearer' + token
+    });
+
+    var returnVal =  this.http.get<any>(
+      environment.interqu_backend_server_url + 'api/user/getInterviewResult',
+      {
+        headers: headers,
+      }
+    );
+
+    console.log(returnVal)
+
+    return returnVal
   }
 }
