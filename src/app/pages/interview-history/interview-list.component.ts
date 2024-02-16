@@ -36,6 +36,7 @@ export class InterviewListComponent {
   expandedElement: interview | null;
   dataSource = new MatTableDataSource<interview>( this.interviews )
   selection = new SelectionModel<interview>(true, []);
+  postData = {}
 
   constructor(private http: HttpClient) {}
 
@@ -44,7 +45,8 @@ export class InterviewListComponent {
 
   ngAfterViewInit() {
     this.dataSource.sort = this.sort;
-    this.GetData();
+    this.GetData()
+      .subscribe(data => console.log(data));
   }
 
 
@@ -54,7 +56,6 @@ export class InterviewListComponent {
   }
 
   sortData(sort: Sort) {
-    console.log("Hello");
   }
 
   GetData(): Observable<any> {
@@ -65,14 +66,13 @@ export class InterviewListComponent {
       Authorization: 'Bearer' + token
     });
 
-    var returnVal =  this.http.get<any>(
-      environment.interqu_backend_server_url + 'api/user/getInterviewResult',
+    var returnVal =  this.http.post<any>(
+      environment.interqu_backend_server_url + '/api/user/getInterviewResult',
+      this.postData,
       {
         headers: headers,
-      }
+      },
     );
-
-    console.log(returnVal)
 
     return returnVal
   }
