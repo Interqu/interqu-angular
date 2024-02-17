@@ -9,8 +9,8 @@ import { interview } from '../../pages/interview-history/data';
 export class InterviewDetailsComponent {
 
   // Sample data - Replace with actual data from your service
-  bodyLanguageAndToneFeedback: string = "";
-  responsesFeedback: string = "";
+  bodyLanguageAndToneOverall_Feedback: string = "";
+  responsesOverall_Feedback: string = "";
   score: number = 0.0;
   video: string = "your_video_source.mp4";
   question: string = "";
@@ -20,8 +20,8 @@ export class InterviewDetailsComponent {
 
 
   ngOnInit(): void {
-    this.bodyLanguageAndToneFeedback = this.Details.Feedback;
-    this.responsesFeedback= this.Details.Feedback;
+    this.bodyLanguageAndToneOverall_Feedback = this.Details.Overall_Feedback;
+    this.responsesOverall_Feedback= this.Details.Overall_Feedback;
     this.score= this.Details.Score;
     // this.video= this.Details.video;
     this.question= this.Details.Question;

@@ -4,10 +4,8 @@ export interface interview {
     Question: string,
     Position: string,
     Score: number,
-    Feedback: string,
+    Overall_Feedback: string,
 }
-
-export const displayedColumns: string[] = ['ID', 'Date', 'Question', 'Position','Score','Feedback'];
 
 export const dataset: interview[] = [
     {
@@ -16,7 +14,7 @@ export const dataset: interview[] = [
       Question: "Tell me about yourself",
       Position: "Software Engineer",
       Score: 8.5,
-      Feedback: "Great job!",
+      Overall_Feedback: "Great job!",
     },
     {
       ID: 2,
@@ -24,7 +22,7 @@ export const dataset: interview[] = [
       Question: "What is your greatest weakness?",
       Position: "Product Manager",
       Score: 7.2,
-      Feedback: "Some improvement needed.",
+      Overall_Feedback: "Some improvement needed.",
     },
     {
       ID: 3,
@@ -32,7 +30,7 @@ export const dataset: interview[] = [
       Question: "Why do you want to work here?",
       Position: "Software Engineer",
       Score: 9.0,
-      Feedback: "Excellent performance!",
+      Overall_Feedback: "Excellent performance!",
     },
     {
       ID: 4,
@@ -40,6 +38,6 @@ export const dataset: interview[] = [
       Question: "Describe a challenging situation you faced at work.",
       Position: "Product Manager",
       Score: 8.7,
-      Feedback: "Impressive!",
+      Overall_Feedback: "Impressive!",
     },
   ];

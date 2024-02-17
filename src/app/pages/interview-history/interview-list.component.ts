@@ -31,7 +31,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class InterviewListComponent {
   interviews: interview[] = dataset;
-  columnsToDisplay = ['ID', 'Date', 'Question', 'Position','Score','Feedback'];
+  columnsToDisplay = ['ID', 'Date', 'Question', 'Position','Score','Overall_Feedback'];
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: interview | null;
   dataSource = new MatTableDataSource<interview>( this.interviews )
@@ -63,11 +63,11 @@ export class InterviewListComponent {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json', // Content type for JSON
-      Authorization: 'Bearer' + token
+      Authorization: 'Bearer ' + token
     });
 
     var returnVal =  this.http.post<any>(
-      environment.interqu_backend_server_url + '/api/user/getInterviewResult',
+      environment.interqu_backend_server_url + '/api/interview/getInterviewResult',
       this.postData,
       {
         headers: headers,
@@ -75,5 +75,14 @@ export class InterviewListComponent {
     );
 
     return returnVal
+  }
+
+  sanitize(s: string): string{
+    for (let i = 0; i < s.length; i++) {
+      if(s.charAt(i)=='_'){
+        s = s.slice(0, i) + " " + s.slice(i + 1);
+      }
+    }
+    return s;
   }
 }
