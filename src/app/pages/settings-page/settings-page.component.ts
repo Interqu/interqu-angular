@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environments';
+import { SettingsService } from 'src/app/services/settings/SettingsService';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -11,14 +10,13 @@ import { environment } from 'src/environments/environments';
 })
 export class SettingsPageComponent implements OnInit {
 
-  data: any;
-
-  constructor(private http: HttpClient) { }
+  constructor(private settingsService: SettingsService) { }
 
   activeTab: string = 'firstTab';
   ngOnInit(): void {
     this.openTab('firstTab');
     this.getUserInfo();
+    
   }
 
   openTab(tabName: string): void {
@@ -43,30 +41,27 @@ export class SettingsPageComponent implements OnInit {
     }
     this.activeTab = tabName;
   }
+  getUserInfo() : void {
+    const emailField = document.getElementById('emailAddress') as HTMLInputElement;
+
+    this.settingsService.getData().subscribe(
+      (userInfo) => {
+        // Success callback function
+        console.log('User Info:', userInfo);
+        emailField.placeholder = userInfo.email;
+      },
+      (err) => {
+        if (err.status == 403) {
+          //TODO handle invalid credentials error.
+        } else {
+          //TODO handle unexpected error here
+        }
+      }
+    );
+  }
 
   isActiveTab(tabName: string): boolean {
     return this.activeTab === tabName;
   }
-
-  getUserInfo(){
-    
-    this.getData().subscribe(response => {
-      this.data = response;
-    });
-  }
-  getData(): Observable<any> {
-    const token = localStorage.getItem(environment.interqu_secure_token_key);
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json', 
-      'Authorization': 'Bearer ' + token,
-    });
-    return this.http.get<any>( 
-      environment.interqu_backend_server_url +
-      '/api/user/getInfo',
-      {
-        headers: headers,
-      }
-      );
-  }
+  
 }
