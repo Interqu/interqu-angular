@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { SettingsService } from 'src/app/services/settings/SettingsService';
-import { Router } from '@angular/router';
 
 
 @Component({
