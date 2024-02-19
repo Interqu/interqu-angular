@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Renderer2 } from '@angular/core';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Observable } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -21,7 +21,8 @@ interface SideBarEntry {
 export class NavSideBarComponent {
   constructor(
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private renderer: Renderer2
     ) { }
 
   data: any;
@@ -53,20 +54,26 @@ export class NavSideBarComponent {
   onLogout(): void {
     document.getElementById("screen-fader")?.classList.remove("hidden");
     document.getElementById("check-logout")?.classList.remove("hidden");
+    document.getElementById("screen-fader")?.classList.add("flex");
+    document.getElementById("check-logout")?.classList.add("flex");
     document.getElementById("screen-fader")?.classList.add("opacity-50");
     document.getElementById("check-logout")?.classList.add("opacity-100");
-   
+    this.renderer.addClass(document.body, 'overflow-hidden');
    
   }
 
   yesLogout(): void {
+    this.renderer.removeClass(document.body, 'overflow-hidden');
     this.authService.logout()
     window.location.reload();
   }
   noLogout(): void {
     document.getElementById("screen-fader")?.classList.add("hidden");
     document.getElementById("check-logout")?.classList.add("hidden");
+    document.getElementById("screen-fader")?.classList.remove("flex");
+    document.getElementById("check-logout")?.classList.remove("flex");
     document.getElementById("screen-fader")?.classList.remove("opacity-50");
     document.getElementById("check-logout")?.classList.remove("opacity-100");
+    this.renderer.removeClass(document.body, 'overflow-hidden');
   }
 }
