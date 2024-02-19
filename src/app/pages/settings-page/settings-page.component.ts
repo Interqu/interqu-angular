@@ -42,19 +42,19 @@ export class SettingsPageComponent implements OnInit {
     this.activeTab = tabName;
   }
   getUserInfo() : void {
+    const nameField = document.getElementById('username') as HTMLInputElement;
     const emailField = document.getElementById('emailAddress') as HTMLInputElement;
 
     this.settingsService.getData().subscribe(
       (userInfo) => {
         // Success callback function
         console.log('User Info:', userInfo);
+        nameField.placeholder = userInfo.name;
         emailField.placeholder = userInfo.email;
       },
       (err) => {
-        if (err.status == 403) {
-          //TODO handle invalid credentials error.
+        if (err.status == 404) {
         } else {
-          //TODO handle unexpected error here
         }
       }
     );
