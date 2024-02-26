@@ -101,12 +101,6 @@ export class HomePageComponent implements OnInit {
 
 
 
-  isScrolled: boolean = false;
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.isScrolled = window.scrollY > 50;
-  }
   
   fadeInElements() {
     this.fadeElements.forEach((element, index) => {
