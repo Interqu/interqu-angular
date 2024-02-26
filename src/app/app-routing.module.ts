@@ -13,17 +13,23 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
+import { TeamPageComponent } from './pages/team-page/team-page.component';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
+
+  //HOME ROUTING
+  { path: '', component: HomePageComponent },
+  { path: 'team', component: TeamPageComponent },
+
   { path: 'test', component: TestPageComponent },
   { path: 'verification-success', component: VerificationSuccessComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
   { path: 'error', component: ErrorPageComponent },
-  { path: 'error', component: ErrorPageComponent },
-  { path: '', component: HomePageComponent },
+
+  //USER ROUTING
   {
     path: 'user',
     canActivate: [AuthGuard],

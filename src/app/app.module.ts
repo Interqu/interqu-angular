@@ -38,6 +38,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/authentication/AuthInterceptor';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { HomeNavBarComponent } from './components/home-nav-bar/home-nav-bar.component';
+import { TeamPageComponent } from './pages/team-page/team-page.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { HomeNavBarComponent } from './components/home-nav-bar/home-nav-bar.comp
     HomePageComponent,
     InterviewPracticeComponent,
     HomeNavBarComponent,
+    TeamPageComponent,
   ],
   imports: [
     BrowserModule,
