@@ -27,6 +27,7 @@ export class AuthService {
   }
 
   private setSession(authResult: any) {
+    localStorage.removeItem(environment.interqu_secure_token_key);
     localStorage.setItem(environment.interqu_secure_token_key, authResult.jwt);
   }
 
