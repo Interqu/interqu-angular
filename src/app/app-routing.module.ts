@@ -13,6 +13,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
+import { SubscriptionPageComponent } from './pages/subscription-page/subscription-page.component';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
@@ -24,6 +25,8 @@ const routes: Routes = [
   { path: 'error', component: ErrorPageComponent },
   { path: 'error', component: ErrorPageComponent },
   { path: '', component: HomePageComponent },
+  { path: 'subscription', component: SubscriptionPageComponent },
+
   {
     path: 'user',
     canActivate: [AuthGuard],
