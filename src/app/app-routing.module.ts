@@ -17,7 +17,7 @@ import { InterviewPracticeComponent } from './pages/interview-practice/interview
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
   { path: 'test', component: TestPageComponent },
-  { path: 'verification-success', component: VerificationSuccessComponent },
+  { path: 'user-verification', component: VerificationSuccessComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
@@ -30,15 +30,15 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: DashboardPageComponent
+        component: DashboardPageComponent,
       },
       {
         path: 'settings',
-        component: SettingsPageComponent
+        component: SettingsPageComponent,
       },
       {
         path: 'history',
-        component: InterviewListComponent
+        component: InterviewListComponent,
       },
       {
         path: 'history',
@@ -61,4 +61,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

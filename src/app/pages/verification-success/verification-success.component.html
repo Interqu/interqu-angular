@@ -3,19 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Verification Success</title>
+    <title>User Verification</title>
     <link
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
   </head>
-  <body class="bg-gray-100 flex justify-center items-center h-screen">
+  <body
+    *ngIf="dataLoaded"
+    class="bg-gray-100 flex justify-center items-center h-screen"
+  >
     <div class="bg-white p-6 rounded-lg shadow-lg text-center">
-      <h1 class="text-2xl font-bold text-green-500 mb-2">Account Verified!</h1>
-      <p class="mb-4">Your account has been successfully verified.</p>
+      <h1
+        class="text-2xl font-bold mb-2"
+        [ngClass]="{ 'text-green-500': success, 'text-red-500': !success }"
+      >
+        {{ h1 }}
+      </h1>
+      <p class="mb-4">{{ h2 }}</p>
       <button
         class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded"
-        onclick="location.href='dashboard.html'"
+        onclick="location.href='/user/dashboard'"
       >
         Go to Dashboard
       </button>
