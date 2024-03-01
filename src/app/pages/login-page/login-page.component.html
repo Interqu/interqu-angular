@@ -146,7 +146,9 @@
               </svg>
             </span>
           </button>
+          
         </div>
+        <span *ngIf="isInvalid" class = "error-message">Incorrect username or password</span>
       </form>
     </div>
     <div class="flex justify-center items-center mt-6">
