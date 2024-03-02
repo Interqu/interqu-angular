@@ -1,14 +1,13 @@
-import { Input, Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { InterviewSelectionData } from 'src/app/pages/interview-select/interview-select.component';
 
 @Component({
-  selector: 'app-interview-card',
-  templateUrl: './interview-card.component.html',
-  styleUrls: ['./interview-card.component.css'],
+  selector: 'app-interview-card-detailed',
+  templateUrl: './interview-card-detailed.component.html',
+  styleUrls: ['./interview-card-detailed.component.css'],
 })
-export class InterviewCardComponent {
+export class InterviewCardDetailedComponent {
   @Input() data: InterviewSelectionData;
-  showPopup = false;
 
   constructor() {
     this.data = {
@@ -27,9 +26,5 @@ export class InterviewCardComponent {
       employers_look_for: [],
       avoid_mentioning: [],
     };
-  }
-  togglePopup() {
-    console.log(this.showPopup);
-    this.showPopup = !this.showPopup;
   }
 }

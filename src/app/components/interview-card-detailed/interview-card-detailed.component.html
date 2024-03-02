@@ -1,12 +1,10 @@
 <div
-  (onclick)="togglePopup()"
   class="p-4 bg-blue-500 text-white cursor-pointer"
-  class="group flex flex-col h-full min-w-[14rem] max-w-[26rem] whitespace-normal break-words rounded-lg border border-blue-gray-50 bg-white p-4 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
+  class="group flex flex-col h-full min-w-[14rem] max-w-[100rem] whitespace-normal break-words rounded-lg border border-blue-gray-50 bg-white p-4 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
 >
-  <div class="mb-2 flex items-center gap-3">
+  <div class="mb-2 items-center gap-3">
     <a
-      href="#"
-      class="block font-sans text-base font-medium leading-relaxed tracking-normal text-blue-gray-900 antialiased transition-colors hover:text-pink-500"
+      class="block text-6xl font-sans text-base font-medium leading-relaxed tracking-normal text-blue-gray-900 antialiased transition-colors"
     >
       {{ data.title }}
     </a>
@@ -16,7 +14,7 @@
     ></app-blob-text>
   </div>
   <p
-    class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased align-top"
+    class="block font-sans text-3xl font-normal leading-normal text-gray-700 antialiased align-top"
   >
     {{ data.description }}
   </p>
@@ -24,17 +22,48 @@
   <div id="average_scores">
     <app-average-scores-bar
       [target]="data.average_audio_rating"
+      [text]="'Average Speaking Score: ' + data.average_audio_rating + '%'"
     ></app-average-scores-bar>
     <app-average-scores-bar
       [target]="data.average_video_rating"
+      [text]="'Average Visual Score: ' + data.average_video_rating + '%'"
     ></app-average-scores-bar>
     <app-average-scores-bar
       [target]="data.average_context_rating"
+      [text]="'Average Contextual Score: ' + data.average_context_rating + '%'"
     ></app-average-scores-bar>
     <app-average-scores-bar
       [target]="data.average_overall_rating"
+      [text]="'Average Overall Score: ' + data.average_overall_rating + '%'"
     ></app-average-scores-bar>
   </div>
+  <br />
+  <app-blob-text
+    [color]="'bg-green-500'"
+    [data]="['Tips:']"
+    [size]="'text-lg'"
+  ></app-blob-text>
+  <app-ul-list [data]="data.tips"></app-ul-list>
+
+  <br />
+  <app-blob-text
+    [color]="'bg-green-500 font-bold'"
+    [data]="['What Companies Look For:']"
+    [size]="'text-lg'"
+  ></app-blob-text>
+  <h1 class="text-xl"></h1>
+  <app-ul-list [data]="data.employers_look_for"></app-ul-list>
+
+  <br />
+  <app-blob-text
+    [color]="'bg-green-500'"
+    [data]="['What To Avoid:']"
+    [size]="'text-lg'"
+  ></app-blob-text>
+  <app-ul-list [data]="data.avoid_mentioning"></app-ul-list>
+
+  <br />
+
   <div class="flex-grow"></div>
   <!-- I want the below to be at the bottom -->
   <div class="mt-4 flex items-center gap-5">
@@ -86,4 +115,10 @@
       </p>
     </div>
   </div>
+  <br />
+  <button
+    class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded transition duration-300 ease-in-out transform hover:scale-105"
+  >
+    Practice Now
+  </button>
 </div>

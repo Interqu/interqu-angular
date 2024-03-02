@@ -40,6 +40,13 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InterviewSelectComponent } from './pages/interview-select/interview-select.component';
 import { SearchBarTopComponent } from './components/search-bar-top/search-bar-top.component';
 import { InterviewCardComponent } from './components/interview-card/interview-card.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { TooltipComponent } from './components/tooltip/tooltip.component';
+import { AverageScoresBarComponent } from './components/average-scores-bar/average-scores-bar.component';
+import { InterviewQuestionPopupComponent } from './components/interview-question-popup/interview-question-popup.component';
+import { InterviewCardDetailedComponent } from './components/interview-card-detailed/interview-card-detailed.component';
+import { UlListComponent } from './components/ul-list/ul-list.component';
+import { BlobTextComponent } from './components/blob-text/blob-text.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +68,13 @@ import { InterviewCardComponent } from './components/interview-card/interview-ca
     InterviewSelectComponent,
     SearchBarTopComponent,
     InterviewCardComponent,
+    ProgressBarComponent,
+    TooltipComponent,
+    AverageScoresBarComponent,
+    InterviewQuestionPopupComponent,
+    InterviewCardDetailedComponent,
+    UlListComponent,
+    BlobTextComponent,
   ],
   imports: [
     BrowserModule,
@@ -84,4 +98,4 @@ import { InterviewCardComponent } from './components/interview-card/interview-ca
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

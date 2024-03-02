@@ -1,14 +1,14 @@
-import { Input, Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { InterviewSelectionData } from 'src/app/pages/interview-select/interview-select.component';
 
 @Component({
-  selector: 'app-interview-card',
-  templateUrl: './interview-card.component.html',
-  styleUrls: ['./interview-card.component.css'],
+  selector: 'app-interview-question-popup',
+  templateUrl: './interview-question-popup.component.html',
+  styleUrls: ['./interview-question-popup.component.css'],
 })
-export class InterviewCardComponent {
+export class InterviewQuestionPopupComponent {
   @Input() data: InterviewSelectionData;
-  showPopup = false;
+  isPopupVisible = false;
 
   constructor() {
     this.data = {
@@ -28,8 +28,13 @@ export class InterviewCardComponent {
       avoid_mentioning: [],
     };
   }
-  togglePopup() {
-    console.log(this.showPopup);
-    this.showPopup = !this.showPopup;
+
+  togglePopup(): void {
+    this.isPopupVisible = !this.isPopupVisible;
+  }
+
+  closePopup(event: MouseEvent): void {
+    if (!this.isPopupVisible) return;
+    this.isPopupVisible = false;
   }
 }
