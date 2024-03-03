@@ -1,0 +1,55 @@
+
+.container {
+    @apply px-5 mx-auto w-9/12;
+}
+
+.row {
+    @apply flex flex-wrap;
+}
+.single-pricing {
+    @apply relative z-10 px-5 pt-6 pb-12 mx-4 mb-8 overflow-hidden bg-white rounded shadow-lg;
+}
+  
+.sub-title {
+    @apply relative pb-2 mb-8 text-xl font-semibold;
+}
+  
+.sub-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 right-0 w-20 h-1 m-auto bg-teal-300;
+}
+
+.pro .sub-title::after {
+    @apply  bg-blue-600;
+}
+
+.enterprise .sub-title::after {
+    @apply ml-auto bg-green-600;
+}
+
+.price {
+    @apply text-6xl font-bold text-gray-900;
+}
+.year {
+    @apply mb-8 text-xl font-medium text-gray-700;
+}
+
+.pricing-list ul li {
+    @apply mb-4 text-gray-900;
+}
+
+.pricing-list ul li i {
+    @apply mr-3 text-blue-600;
+}
+
+.main-btn {
+    @apply inline-block px-8 py-4 font-bold text-white duration-300 bg-blue-700 rounded-full;
+}
+.main-btn:hover {
+    @apply bg-blue-400;
+}
+.bottom-shape {
+    z-index: -1;
+    @apply absolute bottom-0 left-0 w-full -mb-5;
+}
+  

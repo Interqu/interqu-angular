@@ -48,6 +48,8 @@ import { InterviewCardDetailedComponent } from './components/interview-card-deta
 import { UlListComponent } from './components/ul-list/ul-list.component';
 import { BlobTextComponent } from './components/blob-text/blob-text.component';
 import { DotTextComponent } from './components/dot-text/dot-text.component';
+import { HomeNavBarComponent } from './components/home-nav-bar/home-nav-bar.component';
+import { SubscriptionPageComponent } from './pages/subscription-page/subscription-page.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +79,8 @@ import { DotTextComponent } from './components/dot-text/dot-text.component';
     UlListComponent,
     BlobTextComponent,
     DotTextComponent,
+    HomeNavBarComponent,
+    SubscriptionPageComponent,
   ],
   imports: [
     BrowserModule,

@@ -14,6 +14,7 @@ import { InterviewListComponent } from './pages/interview-history/interview-list
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
 import { InterviewSelectComponent } from './pages/interview-select/interview-select.component';
+import { SubscriptionPageComponent } from './pages/subscription-page/subscription-page.component';
 
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
@@ -24,21 +25,23 @@ const routes: Routes = [
   { path: 'expired', component: ExpiredPageComponent },
   { path: 'error', component: ErrorPageComponent },
   { path: '', component: HomePageComponent },
+  { path: 'subscription', component: SubscriptionPageComponent },
+
   {
     path: 'user',
     canActivate: [AuthGuard],
     children: [
       {
         path: 'dashboard',
-        component: DashboardPageComponent
+        component: DashboardPageComponent,
       },
       {
         path: 'settings',
-        component: SettingsPageComponent
+        component: SettingsPageComponent,
       },
       {
         path: 'history',
-        component: InterviewListComponent
+        component: InterviewListComponent,
       },
       {
         path: 'history',
@@ -65,4 +68,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
