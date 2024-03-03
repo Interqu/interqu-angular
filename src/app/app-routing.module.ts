@@ -19,7 +19,7 @@ import { SubscriptionPageComponent } from './pages/subscription-page/subscriptio
 const routes: Routes = [
   // { path: '', component: TestPageComponent }, // sample format
   { path: 'test', component: TestPageComponent },
-  { path: 'verification-success', component: VerificationSuccessComponent },
+  { path: 'user-verification', component: VerificationSuccessComponent },
   { path: 'login', component: LoginPageComponent },
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
