@@ -13,6 +13,7 @@ import { ErrorPageComponent } from './pages/error-page/error-page.component';
 import { InterviewListComponent } from './pages/interview-history/interview-list.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
+import { InterviewSelectComponent } from './pages/interview-select/interview-select.component';
 import { SubscriptionPageComponent } from './pages/subscription-page/subscription-page.component';
 
 const routes: Routes = [
@@ -23,7 +24,6 @@ const routes: Routes = [
   { path: 'register', component: RegisterPageComponent },
   { path: 'expired', component: ExpiredPageComponent },
   { path: 'error', component: ErrorPageComponent },
-  { path: 'error', component: ErrorPageComponent },
   { path: '', component: HomePageComponent },
   { path: 'subscription', component: SubscriptionPageComponent },
 
@@ -33,15 +33,15 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard',
-        component: DashboardPageComponent
+        component: DashboardPageComponent,
       },
       {
         path: 'settings',
-        component: SettingsPageComponent
+        component: SettingsPageComponent,
       },
       {
         path: 'history',
-        component: InterviewListComponent
+        component: InterviewListComponent,
       },
       {
         path: 'history',
@@ -56,6 +56,10 @@ const routes: Routes = [
         path: 'results',
         component: InterviewResultsComponent,
       },
+      {
+        path: 'interview-browse',
+        component: InterviewSelectComponent,
+      },
     ],
   },
 ];
@@ -64,4 +68,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

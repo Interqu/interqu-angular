@@ -1,0 +1,13 @@
+<div
+  [ngClass]="size"
+  class="block font-sans font-normal text-gray-700 antialiased"
+  *ngFor="let item of data"
+  [ngClass]="color"
+  class="hover:scale-105 transition-transform duration-300 center relative inline-block select-none whitespace-nowrap rounded-full py-1 px-2 align-baseline font-sans text-xs font-medium capitalize leading-none tracking-wide text-white mx-1"
+>
+  <ul>
+    <li>
+      {{ item }}
+    </li>
+  </ul>
+</div>

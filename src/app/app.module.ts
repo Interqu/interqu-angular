@@ -37,6 +37,17 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './services/authentication/AuthInterceptor';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { InterviewSelectComponent } from './pages/interview-select/interview-select.component';
+import { SearchBarTopComponent } from './components/search-bar-top/search-bar-top.component';
+import { InterviewCardComponent } from './components/interview-card/interview-card.component';
+import { ProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { TooltipComponent } from './components/tooltip/tooltip.component';
+import { AverageScoresBarComponent } from './components/average-scores-bar/average-scores-bar.component';
+import { InterviewQuestionPopupComponent } from './components/interview-question-popup/interview-question-popup.component';
+import { InterviewCardDetailedComponent } from './components/interview-card-detailed/interview-card-detailed.component';
+import { UlListComponent } from './components/ul-list/ul-list.component';
+import { BlobTextComponent } from './components/blob-text/blob-text.component';
+import { DotTextComponent } from './components/dot-text/dot-text.component';
 import { HomeNavBarComponent } from './components/home-nav-bar/home-nav-bar.component';
 import { SubscriptionPageComponent } from './pages/subscription-page/subscription-page.component';
 
@@ -57,6 +68,17 @@ import { SubscriptionPageComponent } from './pages/subscription-page/subscriptio
     ErrorPageComponent,
     HomePageComponent,
     InterviewPracticeComponent,
+    InterviewSelectComponent,
+    SearchBarTopComponent,
+    InterviewCardComponent,
+    ProgressBarComponent,
+    TooltipComponent,
+    AverageScoresBarComponent,
+    InterviewQuestionPopupComponent,
+    InterviewCardDetailedComponent,
+    UlListComponent,
+    BlobTextComponent,
+    DotTextComponent,
     HomeNavBarComponent,
     SubscriptionPageComponent,
   ],

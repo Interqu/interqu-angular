@@ -5,12 +5,16 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environments';
 import { AuthService } from 'src/app/services/authentication/AuthService';
 
-import { faComments, faHistory, faLineChart } from '@fortawesome/free-solid-svg-icons';
+import {
+  faComments,
+  faHistory,
+  faLineChart,
+} from '@fortawesome/free-solid-svg-icons';
 
 interface SideBarEntry {
-  name: string,
-  href: string,
-  faIcon: IconProp
+  name: string;
+  href: string;
+  faIcon: IconProp;
 }
 
 @Component({
@@ -23,7 +27,7 @@ export class NavSideBarComponent {
     private http: HttpClient,
     private authService: AuthService,
     private renderer: Renderer2
-    ) { }
+  ) {}
 
   data: any;
 
@@ -34,46 +38,44 @@ export class NavSideBarComponent {
     //   faIcon: faTachometer
     // },
     {
-      name: "Interviews",
-      href: "/user/interviews",
-      faIcon: faComments
+      name: 'Interviews',
+      href: '/user/interview-browse',
+      faIcon: faComments,
     },
     {
-      name: "Performance",
-      href: "/user/performance",
-      faIcon: faLineChart
+      name: 'Performance',
+      href: '/user/performance',
+      faIcon: faLineChart,
     },
     {
-      name: "History",
-      href: "/user/history",
-      faIcon: faHistory
+      name: 'History',
+      href: '/user/history',
+      faIcon: faHistory,
     },
-  ]
+  ];
 
-  
   onLogout(): void {
-    document.getElementById("screen-fader")?.classList.remove("hidden");
-    document.getElementById("check-logout")?.classList.remove("hidden");
-    document.getElementById("screen-fader")?.classList.add("flex");
-    document.getElementById("check-logout")?.classList.add("flex");
-    document.getElementById("screen-fader")?.classList.add("opacity-50");
-    document.getElementById("check-logout")?.classList.add("opacity-100");
+    document.getElementById('screen-fader')?.classList.remove('hidden');
+    document.getElementById('check-logout')?.classList.remove('hidden');
+    document.getElementById('screen-fader')?.classList.add('flex');
+    document.getElementById('check-logout')?.classList.add('flex');
+    document.getElementById('screen-fader')?.classList.add('opacity-50');
+    document.getElementById('check-logout')?.classList.add('opacity-100');
     this.renderer.addClass(document.body, 'overflow-hidden');
-   
   }
 
   yesLogout(): void {
     this.renderer.removeClass(document.body, 'overflow-hidden');
-    this.authService.logout()
+    this.authService.logout();
     window.location.reload();
   }
   noLogout(): void {
-    document.getElementById("screen-fader")?.classList.add("hidden");
-    document.getElementById("check-logout")?.classList.add("hidden");
-    document.getElementById("screen-fader")?.classList.remove("flex");
-    document.getElementById("check-logout")?.classList.remove("flex");
-    document.getElementById("screen-fader")?.classList.remove("opacity-50");
-    document.getElementById("check-logout")?.classList.remove("opacity-100");
+    document.getElementById('screen-fader')?.classList.add('hidden');
+    document.getElementById('check-logout')?.classList.add('hidden');
+    document.getElementById('screen-fader')?.classList.remove('flex');
+    document.getElementById('check-logout')?.classList.remove('flex');
+    document.getElementById('screen-fader')?.classList.remove('opacity-50');
+    document.getElementById('check-logout')?.classList.remove('opacity-100');
     this.renderer.removeClass(document.body, 'overflow-hidden');
   }
 }

@@ -1,0 +1,11 @@
+<ul>
+  <li
+    *ngFor="let item of parsedString"
+    class="block font-sans text-lg font-normal leading-normal text-gray-700 antialiased align-top"
+  >
+    <span
+      ><strong>{{ item[0] }}</strong
+      >{{ item.length > 1 ? ":" + item[1] : "" }}</span
+    >
+  </li>
+</ul>

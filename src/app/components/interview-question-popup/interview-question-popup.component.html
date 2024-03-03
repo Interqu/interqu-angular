@@ -1,0 +1,19 @@
+<!-- Trigger Div -->
+<div class="cursor-pointer" (click)="togglePopup()">
+  <app-interview-card [data]="data"></app-interview-card>
+</div>
+
+<!-- Popup Overlay -->
+<div
+  *ngIf="isPopupVisible"
+  class="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 rounded-xl"
+  (click)="closePopup($event)"
+>
+  <!-- Popup Content -->
+  <div
+    class="bg-white p-8 rounded z-50 rounded-lg"
+    (click)="$event.stopPropagation()"
+  >
+    <app-interview-card-detailed [data]="data"></app-interview-card-detailed>
+  </div>
+</div>
