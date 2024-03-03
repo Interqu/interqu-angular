@@ -47,6 +47,7 @@ import { InterviewQuestionPopupComponent } from './components/interview-question
 import { InterviewCardDetailedComponent } from './components/interview-card-detailed/interview-card-detailed.component';
 import { UlListComponent } from './components/ul-list/ul-list.component';
 import { BlobTextComponent } from './components/blob-text/blob-text.component';
+import { DotTextComponent } from './components/dot-text/dot-text.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { BlobTextComponent } from './components/blob-text/blob-text.component';
     InterviewCardDetailedComponent,
     UlListComponent,
     BlobTextComponent,
+    DotTextComponent,
   ],
   imports: [
     BrowserModule,

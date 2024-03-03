@@ -22,6 +22,7 @@ export class InterviewQuestionPopupComponent {
       average_context_rating: 0,
       average_video_rating: 0,
       average_overall_rating: 0,
+      verified: false,
       question_id: '',
       tips: [],
       employers_look_for: [],

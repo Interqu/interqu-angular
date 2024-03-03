@@ -1,10 +1,10 @@
 <div
   class="p-4 bg-blue-500 text-white cursor-pointer"
-  class="group flex flex-col h-full min-w-[14rem] max-w-[100rem] whitespace-normal break-words rounded-lg border border-blue-gray-50 bg-white p-4 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
+  class="group flex flex-col h-full min-w-[40rem] max-w-[100rem] whitespace-normal break-words rounded-lg border border-blue-gray-50 bg-white p-4 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
 >
   <div class="mb-2 items-center gap-3">
     <a
-      class="block text-6xl font-sans text-base font-medium leading-relaxed tracking-normal text-blue-gray-900 antialiased transition-colors"
+      class="block font-sans text-6xl font-medium leading-relaxed tracking-normal text-blue-gray-900 antialiased transition-colors"
     >
       {{ data.title }}
     </a>
@@ -67,17 +67,7 @@
   <div class="flex-grow"></div>
   <!-- I want the below to be at the bottom -->
   <div class="mt-4 flex items-center gap-5">
-    <div class="flex items-center gap-1">
-      <span class="h-3 w-3 rounded-full bg-blue-400"></span>
-      <ul>
-        <li
-          class="block font-sans text-xs font-normal text-gray-700 antialiased"
-          *ngFor="let item of data.skills"
-        >
-          {{ item }}
-        </li>
-      </ul>
-    </div>
+    <app-dot-text [data]="data.skills"></app-dot-text>
     <div class="flex items-center gap-1">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +86,7 @@
         {{ data.stars }}
       </p>
     </div>
-    <div class="flex items-center gap-1">
+    <div *ngIf="data.verified" class="flex items-center gap-1">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
