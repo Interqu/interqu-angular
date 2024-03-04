@@ -1,0 +1,14 @@
+@keyframes fillProgressBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(
+      --progress-width
+    ); /* This custom property will be dynamically updated */
+  }
+}
+
+.progress-bar-animation {
+  animation: fillProgressBar 2s ease-in-out forwards; /* Adjust the duration as needed */
+}

@@ -7,10 +7,7 @@ import { environment } from 'src/environments/environments';
   providedIn: 'root',
 })
 export class SettingsService {
-  constructor(
-    private http: HttpClient,
-
-  ) {}
+  constructor(private http: HttpClient) {}
 
   data: any;
 
@@ -18,16 +15,14 @@ export class SettingsService {
     const token = localStorage.getItem(environment.interqu_secure_token_key);
 
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json', 
+      'Content-Type': 'application/json',
       Authorization: 'Bearer ' + token,
     });
-    return this.http.get<any>( 
-      environment.interqu_backend_server_url +
-      '/api/user/getInfo',
+    return this.http.get<any>(
+      environment.interqu_backend_server_url + '/api/user/getInfo',
       {
         headers: headers,
       }
-      );
+    );
   }
-
 }

@@ -1,0 +1,149 @@
+<body class="flex bg-gray-100 h-screen overflow-hidden">
+  <app-nav-side-bar />
+  <div class="flex-grow relative antialiased bg-gray-100 overflow-y-auto">
+    <app-search-bar-top />
+    <div
+      class="grid gap-2 p-2 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5"
+    >
+      <!-- navigational -->
+      <div
+        class="col-span-1 bg-white p-4 rounded-lg border border-blue-gray-50 shadow-md"
+      >
+        <!-- Navigation Parameters -->
+        <h3
+          class="text-base font-semibold leading-7 text-gray-900 border-b border-gray-200"
+        >
+          Quick Filters
+        </h3>
+        <!-- Navigation items here -->
+        <div class="flex flex-wrap p-2 gap-2">
+          <div>
+            <input
+              id="1"
+              type="checkbox"
+              class="hidden peer"
+              name="preferred_activities[]"
+              value="1"
+            />
+            <label
+              for="1"
+              class="center relative inline-block select-none whitespace-nowrap rounded-full py-1 px-2 align-baseline font-sans text-xs font-medium capitalize leading-none tracking-wide border border-gray-200 peer-checked:border-violet-400 peer-checked:bg-blue-400 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark"
+            >
+              <div class="text-xs text-brand-black">Apple</div>
+            </label>
+          </div>
+          <div>
+            <input
+              id="1"
+              type="checkbox"
+              class="hidden peer"
+              name="preferred_activities[]"
+              value="1"
+            />
+            <label
+              for="1"
+              class="center relative inline-block select-none whitespace-nowrap rounded-full py-1 px-2 align-baseline font-sans text-xs font-medium capitalize leading-none tracking-wide border border-gray-200 peer-checked:border-violet-400 peer-checked:bg-blue-400 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark"
+            >
+              <div class="text-xs text-brand-black">Meta</div>
+            </label>
+          </div>
+          <div>
+            <input
+              id="1"
+              type="checkbox"
+              class="hidden peer"
+              name="preferred_activities[]"
+              value="1"
+            />
+            <label
+              for="1"
+              class="center relative inline-block select-none whitespace-nowrap rounded-full py-1 px-2 align-baseline font-sans text-xs font-medium capitalize leading-none tracking-wide border border-gray-200 peer-checked:border-violet-400 peer-checked:bg-blue-400 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark"
+            >
+              <div class="text-xs text-brand-black">C++</div>
+            </label>
+          </div>
+          <div>
+            <input
+              id="1"
+              type="checkbox"
+              class="hidden peer"
+              name="preferred_activities[]"
+              value="1"
+            />
+            <label
+              for="1"
+              class="center relative inline-block select-none whitespace-nowrap rounded-full py-1 px-2 align-baseline font-sans text-xs font-medium capitalize leading-none tracking-wide border border-gray-200 peer-checked:border-violet-400 peer-checked:bg-blue-400 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark"
+            >
+              <div class="text-xs text-brand-black">Python</div>
+            </label>
+          </div>
+          <div>
+            <input
+              id="1"
+              type="checkbox"
+              class="hidden peer"
+              name="preferred_activities[]"
+              value="1"
+            />
+            <label
+              for="1"
+              class="center relative inline-block select-none whitespace-nowrap rounded-full py-1 px-2 align-baseline font-sans text-xs font-medium capitalize leading-none tracking-wide border border-gray-200 peer-checked:border-violet-400 peer-checked:bg-blue-400 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark"
+            >
+              <div class="text-xs text-brand-black">Front-end</div>
+            </label>
+          </div>
+          <div>
+            <input
+              id="1"
+              type="checkbox"
+              class="hidden peer"
+              name="preferred_activities[]"
+              value="1"
+            />
+            <label
+              for="1"
+              class="center relative inline-block select-none whitespace-nowrap rounded-full py-1 px-2 align-baseline font-sans text-xs font-medium capitalize leading-none tracking-wide border border-gray-200 peer-checked:border-violet-400 peer-checked:bg-blue-400 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark"
+            >
+              <div class="text-xs text-brand-black">Back-end</div>
+            </label>
+          </div>
+          <div>
+            <input
+              id="1"
+              type="checkbox"
+              class="hidden peer"
+              name="preferred_activities[]"
+              value="1"
+            />
+            <label
+              for="1"
+              class="center relative inline-block select-none whitespace-nowrap rounded-full py-1 px-2 align-baseline font-sans text-xs font-medium capitalize leading-none tracking-wide border border-gray-200 peer-checked:border-violet-400 peer-checked:bg-blue-400 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark"
+            >
+              <div class="text-xs text-brand-black">Software Engineer</div>
+            </label>
+          </div>
+          <div>
+            <input
+              id="1"
+              type="checkbox"
+              class="hidden peer"
+              name="preferred_activities[]"
+              value="1"
+            />
+            <label
+              for="1"
+              class="center relative inline-block select-none whitespace-nowrap rounded-full py-1 px-2 align-baseline font-sans text-xs font-medium capitalize leading-none tracking-wide border border-gray-200 peer-checked:border-violet-400 peer-checked:bg-blue-400 peer-checked:text-white peer-checked:font-semibold peer-checked:decoration-brand-dark"
+            >
+              <div class="text-xs text-brand-black">Janitor</div>
+            </label>
+          </div>
+        </div>
+      </div>
+      <app-interview-question-popup
+        *ngFor="let entry of selection"
+        [data]="entry"
+      >
+      </app-interview-question-popup>
+    </div>
+  </div>
+</body>
