@@ -1,17 +1,49 @@
-<div class="maincontainer">
-    <video id="video" autoplay></video>
+<div id="container">
+  <div id="content">
+    <div id="video-container">
+      <video id="video" autoplay muted></video>
+      <div id="countdown">
+        <span id="countdown-num"></span>
+      </div>
+    </div>
     <div class="progress-bar">
-        <div class="progress-bar-fill"></div>
+      <div class="progress-bar-fill"></div>
     </div>
-    <div id="question">{{ questionData.Question }}</div>
-    <button id="access-camera" (click)="accessCamera()">Access Camera</button>
-    <button id="record-btn" (click)="recordBtnClick()">Record</button>
-    <button id="stop-btn" (click)="stopBtnClick()" style="display: none;">Stop</button>
-    <button id="restart-btn" (click)="restartBtnClick()" style="display: none;">Restart</button>
-    <button id="submit-btn" (click)="submitBtnClick()" style="display: none;">Submit</button>
-    <div id="countdown" style="display: none;">
-      <span id="countdown-num"></span>
+    <div class="justify-center items-center flex-col">
+      <div class="border-container text-center" data-title="Information">
+        <h2 id="position">
+          <b>{{ data.title }}</b>
+        </h2>
+        <h2 id="question" class="text-center text-lg">
+          {{ data.description }}
+        </h2>
+        <h2 id="question">
+          <b *ngIf="currentTime > 0">Max Time Remaining: </b
+          ><span id="time"></span>
+        </h2>
+      </div>
+
+      <div id="controls" class="items-center justify-center flex mt-4">
+        <button
+          id="access-camera"
+          class="btn text-center"
+          (click)="accessCamera()"
+        >
+          Access Camera
+        </button>
+        <button id="record-btn" class="btn hidden" (click)="recordBtnClick()">
+          Record
+        </button>
+        <button id="stop-btn" class="btn hidden" (click)="stopBtnClick()">
+          Stop
+        </button>
+        <button id="restart-btn" class="btn hidden" (click)="restartBtnClick()">
+          Restart
+        </button>
+        <button id="submit-btn" class="btn hidden" (click)="submitBtnClick()">
+          Anaylze
+        </button>
+      </div>
     </div>
-    <div id="time"></div>
   </div>
-  
+</div>

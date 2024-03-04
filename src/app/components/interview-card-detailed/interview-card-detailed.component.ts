@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { InterviewSelectionData } from 'src/app/pages/interview-select/interview-select.component';
 
 @Component({
@@ -9,7 +10,7 @@ import { InterviewSelectionData } from 'src/app/pages/interview-select/interview
 export class InterviewCardDetailedComponent {
   @Input() data: InterviewSelectionData;
 
-  constructor() {
+  constructor(private router: Router) {
     this.data = {
       title: '',
       description: '',
@@ -27,5 +28,9 @@ export class InterviewCardDetailedComponent {
       employers_look_for: [],
       avoid_mentioning: [],
     };
+  }
+
+  practice() {
+    this.router.navigate(['/user/practice'], { state: { data: this.data } });
   }
 }
