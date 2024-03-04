@@ -49,6 +49,7 @@ import { UlListComponent } from './components/ul-list/ul-list.component';
 import { BlobTextComponent } from './components/blob-text/blob-text.component';
 import { DotTextComponent } from './components/dot-text/dot-text.component';
 import { HomeNavBarComponent } from './components/home-nav-bar/home-nav-bar.component';
+import { TeamPageComponent } from './pages/team-page/team-page.component';
 import { SubscriptionPageComponent } from './pages/subscription-page/subscription-page.component';
 
 @NgModule({
@@ -80,6 +81,7 @@ import { SubscriptionPageComponent } from './pages/subscription-page/subscriptio
     BlobTextComponent,
     DotTextComponent,
     HomeNavBarComponent,
+    TeamPageComponent,
     SubscriptionPageComponent,
   ],
   imports: [
