@@ -9,6 +9,8 @@ import {
   faComments,
   faHistory,
   faLineChart,
+  faSquarePlus,
+  faTachometer,
 } from '@fortawesome/free-solid-svg-icons';
 
 interface SideBarEntry {
@@ -33,9 +35,9 @@ export class NavSideBarComponent {
 
   public sideBarEntries: SideBarEntry[] = [
     // {
-    //   name: "Dashboard",
-    //   href: "/dashboard",
-    //   faIcon: faTachometer
+    //   name: 'Dashboard',
+    //   href: '/dashboard',
+    //   faIcon: faTachometer,
     // },
     {
       name: 'Interviews',
@@ -43,9 +45,9 @@ export class NavSideBarComponent {
       faIcon: faComments,
     },
     {
-      name: 'Performance',
-      href: '/user/performance',
-      faIcon: faLineChart,
+      name: 'Custom Interview',
+      href: '/user/custom-interview',
+      faIcon: faSquarePlus,
     },
     {
       name: 'History',

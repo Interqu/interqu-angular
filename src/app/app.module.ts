@@ -51,6 +51,8 @@ import { DotTextComponent } from './components/dot-text/dot-text.component';
 import { HomeNavBarComponent } from './components/home-nav-bar/home-nav-bar.component';
 import { TeamPageComponent } from './pages/team-page/team-page.component';
 import { SubscriptionPageComponent } from './pages/subscription-page/subscription-page.component';
+import { CustomInterviewModalComponent } from './components/custom-interview-modal/custom-interview-modal.component';
+import { GenerateCustomInterviewComponent } from './pages/generate-custom-interview/generate-custom-interview.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { SubscriptionPageComponent } from './pages/subscription-page/subscriptio
     HomeNavBarComponent,
     TeamPageComponent,
     SubscriptionPageComponent,
+    CustomInterviewModalComponent,
+    GenerateCustomInterviewComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +100,7 @@ import { SubscriptionPageComponent } from './pages/subscription-page/subscriptio
     MatSortModule,
     BrowserAnimationsModule,
     MatInputModule,
+    FormsModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

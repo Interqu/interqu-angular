@@ -15,6 +15,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
 import { TeamPageComponent } from './pages/team-page/team-page.component';
 import { InterviewSelectComponent } from './pages/interview-select/interview-select.component';
+import { GenerateCustomInterviewComponent } from './pages/generate-custom-interview/generate-custom-interview.component';
 import { SubscriptionPageComponent } from './pages/subscription-page/subscription-page.component';
 
 const routes: Routes = [
@@ -24,7 +25,6 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'team', component: TeamPageComponent },
   { path: 'subscription', component: SubscriptionPageComponent },
-
 
   { path: 'test', component: TestPageComponent },
   { path: 'user-verification', component: VerificationSuccessComponent },
@@ -51,11 +51,6 @@ const routes: Routes = [
         component: InterviewListComponent,
       },
       {
-        path: 'history',
-        component: InterviewListComponent,
-      },
-
-      {
         path: 'practice',
         component: InterviewPracticeComponent,
       },
@@ -66,6 +61,10 @@ const routes: Routes = [
       {
         path: 'interview-browse',
         component: InterviewSelectComponent,
+      },
+      {
+        path: 'custom-interview',
+        component: GenerateCustomInterviewComponent,
       },
     ],
   },

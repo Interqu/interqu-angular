@@ -1,64 +1,93 @@
-<div id="screen-fader"
-    class="hidden z-50 absolute min-h-screen w-screen items-center justify-center bg-gray-500 opacity-0 transition-opacity duration-300">
-</div>
-<div id="check-logout" class="hidden z-50 absolute min-h-screen w-screen items-center justify-center">
-    <div class="flex flex-col bg-white p-8 rounded-lg shadow-md justify-center items-center">
-        <h1 class="text-2xl font-bold mb-4 text-center">Confirm Logout</h1>
-        <h3 class="text-center mb-12">Are you sure you want to logout?</h3>
-        <button id="confirm-logout" (click)="yesLogout()" type="button"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-4/5">
-            Click here to logout
-        </button>
-        <button id="cancel-logout" (click)="noLogout()" type="button"
-            class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-4/5">
-            Cancel
-        </button>
-    </div>
+<div
+  id="screen-fader"
+  class="hidden z-50 absolute min-h-screen w-screen items-center justify-center bg-gray-500 opacity-0 transition-opacity duration-300"
+></div>
+<div
+  id="check-logout"
+  class="hidden z-50 absolute min-h-screen w-screen items-center justify-center"
+>
+  <div
+    class="flex flex-col bg-white p-8 rounded-lg shadow-md justify-center items-center"
+  >
+    <h1 class="text-2xl font-bold mb-4 text-center">Confirm Logout</h1>
+    <h3 class="text-center mb-12">Are you sure you want to logout?</h3>
+    <button
+      id="confirm-logout"
+      (click)="yesLogout()"
+      type="button"
+      class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-4/5"
+    >
+      Click here to logout
+    </button>
+    <button
+      id="cancel-logout"
+      (click)="noLogout()"
+      type="button"
+      class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 w-4/5"
+    >
+      Cancel
+    </button>
+  </div>
 </div>
 
 <div class="z-10 relative min-h-screen w-[3.35rem]">
-    <div
-        class="fixed sidebar min-h-screen w-[3.35rem] overflow-hidden border-r bg-gray-100 hover:w-56 hover:bg-white hover:shadow-lg">
-        <div class="flex h-screen flex-col justify-between pt-2 pb-6">
-            <div>
-                <div class=" p-2.5 flex items-center justify-center">
-                    <!-- <img src="https://tailus.io/images/logo.svg" class="w-32" alt=""> -->
-                    <a [routerLink]="'/'">
-                        <mat-icon class="scale-150" svgIcon="darkbluelogo" />
-                    </a>
+  <div
+    class="fixed sidebar min-h-screen w-[3.35rem] overflow-hidden border-r bg-gray-100 hover:w-56 hover:bg-white hover:shadow-lg"
+  >
+    <div class="flex h-screen flex-col justify-between pt-2 pb-6">
+      <div>
+        <div class="p-2.5 flex items-center justify-center">
+          <!-- <img src="https://tailus.io/images/logo.svg" class="w-32" alt=""> -->
+          <a [routerLink]="'/'">
+            <mat-icon class="scale-150" svgIcon="darkbluelogo" />
+          </a>
+        </div>
+        <ul class="mt-6 space-y-2 tracking-wide">
+          <li class="min-w-max">
+            <a
+              aria-label="dashboard"
+              [routerLink]="'/user/dashboard'"
+              routerLinkActive="true"
+              class="flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white"
+            >
+              <svg class="-ml-0.5 h-6 w-6" viewBox="0 0 24 24" fill="none">
+                <path
+                  d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
+                  class="fill-current text-cyan-400 dark:fill-slate-600"
+                ></path>
+                <path
+                  d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z"
+                  class="fill-current text-cyan-200 group-hover:text-cyan-300"
+                ></path>
+                <path
+                  d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
+                  class="fill-current group-hover:text-sky-300"
+                ></path>
+              </svg>
+              <a [routerLink]="'/user/dashboard'" class="font-medium">
+                Dashboard
+              </a>
+            </a>
+          </li>
 
-                </div>
-                <ul class="mt-6 space-y-2 tracking-wide">
-                    <li class="min-w-max">
-                        <a aria-label="dashboard" [routerLink]="'/user/dashboard'" routerLinkActive="true"
-                            class=" flex items-center space-x-4 bg-gradient-to-r from-sky-600 to-cyan-400 px-4 py-3 text-white">
-                            <svg class="-ml-0.5 h-6 w-6" viewBox="0 0 24 24" fill="none">
-                                <path
-                                    d="M6 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V8ZM6 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-1Z"
-                                    class="fill-current text-cyan-400 dark:fill-slate-600"></path>
-                                <path d="M13 8a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2V8Z"
-                                    class="fill-current text-cyan-200 group-hover:text-cyan-300"></path>
-                                <path d="M13 15a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2v1a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-1Z"
-                                    class="fill-current group-hover:text-sky-300"></path>
-                            </svg>
-                            <a [routerLink]="'/user/dashboard'" class="font-medium">
-                                Dashboard
-                            </a>
-                        </a>
-                    </li>
-
-                    <li *ngFor="let item of sideBarEntries" class="min-w-max">
-                        <a aria-label="dashboard" [routerLink]="item.href" routerLinkActive="true"
-                            class="bg group flex items-center space-x-4 px-4 py-3 align-middle text-gray-600 transition-all duration-500 bg-gradient-to-r hover:to-blue-300 via-gray-100 hover:via-white hover:from-white bg-size-200 bg-pos-0 hover:bg-pos-100">
-                            <fa-icon [icon]="item.faIcon"
-                                class="ml-0.5 -mr-0.5 h-5 w-5 group-hover:text-cyan-300"></fa-icon>
-                            <a [routerLink]="item.href" class="group-hover:text-gray-700">
-                                {{item.name}}
-                            </a>
-                            <!-- <span class="group-hover:text-gray-700">{{item.name}}</span> -->
-                        </a>
-                    </li>
-                    <!-- <li class="min-w-max">  sample entry left for reference
+          <li *ngFor="let item of sideBarEntries" class="min-w-max">
+            <a
+              aria-label="dashboard"
+              [routerLink]="item.href"
+              routerLinkActive="true"
+              class="bg group flex items-center space-x-4 px-4 py-3 align-middle text-gray-600 transition-all duration-500 bg-gradient-to-r hover:to-blue-300 via-gray-100 hover:via-white hover:from-white bg-size-200 bg-pos-0 hover:bg-pos-100"
+            >
+              <fa-icon
+                [icon]="item.faIcon"
+                class="ml-0.5 -mr-0.5 h-5 w-5 group-hover:text-cyan-300"
+              ></fa-icon>
+              <a [routerLink]="item.href" class="group-hover:text-gray-700">
+                {{ item.name }}
+              </a>
+              <!-- <span class="group-hover:text-gray-700">{{item.name}}</span> -->
+            </a>
+          </li>
+          <!-- <li class="min-w-max">  sample entry left for reference
                         <a href="#" class="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600">
                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
                                 fill="currentColor">
@@ -71,34 +100,55 @@
                             <span class="group-hover:text-gray-700">Finance</span>
                         </a>
                     </li> -->
-                </ul>
-            </div>
-            <div class="w-max -mb-3">
-                <a class="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 cursor-pointer transition-all"
-                    (click)="onLogout()">
-                    <svg class="ml-1 -mr-1 group-hover:fill-cyan-600" fill="#000000" width="20px" height="20px"
-                        viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M0 9.875v12.219c0 1.125 0.469 2.125 1.219 2.906 0.75 0.75 1.719 1.156 2.844 1.156h6.125v-2.531h-6.125c-0.844 0-1.5-0.688-1.5-1.531v-12.219c0-0.844 0.656-1.5 1.5-1.5h6.125v-2.563h-6.125c-1.125 0-2.094 0.438-2.844 1.188-0.75 0.781-1.219 1.75-1.219 2.875zM6.719 13.563v4.875c0 0.563 0.5 1.031 1.063 1.031h5.656v3.844c0 0.344 0.188 0.625 0.5 0.781 0.125 0.031 0.25 0.031 0.313 0.031 0.219 0 0.406-0.063 0.563-0.219l7.344-7.344c0.344-0.281 0.313-0.844 0-1.156l-7.344-7.313c-0.438-0.469-1.375-0.188-1.375 0.563v3.875h-5.656c-0.563 0-1.063 0.469-1.063 1.031z">
-                        </path>
-                    </svg>
-                    <a (click)="onLogout()" class="group-hover:text-gray-700 cursor-pointer">
-                        Logout
-                    </a>
-                </a>
-                <a class="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600"
-                    [routerLink]="'/user/settings'" routerLinkActive="true">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:fill-cyan-600"
-                        viewBox="0 0 20 20" fill="currentColor">
-                        <path fill-rule="evenodd"
-                            d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
-                            clip-rule="evenodd" />
-                    </svg>
-                    <a [routerLink]="'/user/settings'" class="group-hover:text-gray-700">
-                        Settings
-                    </a>
-                </a>
-            </div>
-        </div>
+        </ul>
+      </div>
+      <div class="w-max -mb-3">
+        <a
+          class="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600 cursor-pointer transition-all"
+          (click)="onLogout()"
+        >
+          <svg
+            class="ml-1 -mr-1 group-hover:fill-cyan-600"
+            fill="#000000"
+            width="20px"
+            height="20px"
+            viewBox="0 0 32 32"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 9.875v12.219c0 1.125 0.469 2.125 1.219 2.906 0.75 0.75 1.719 1.156 2.844 1.156h6.125v-2.531h-6.125c-0.844 0-1.5-0.688-1.5-1.531v-12.219c0-0.844 0.656-1.5 1.5-1.5h6.125v-2.563h-6.125c-1.125 0-2.094 0.438-2.844 1.188-0.75 0.781-1.219 1.75-1.219 2.875zM6.719 13.563v4.875c0 0.563 0.5 1.031 1.063 1.031h5.656v3.844c0 0.344 0.188 0.625 0.5 0.781 0.125 0.031 0.25 0.031 0.313 0.031 0.219 0 0.406-0.063 0.563-0.219l7.344-7.344c0.344-0.281 0.313-0.844 0-1.156l-7.344-7.313c-0.438-0.469-1.375-0.188-1.375 0.563v3.875h-5.656c-0.563 0-1.063 0.469-1.063 1.031z"
+            ></path>
+          </svg>
+          <a
+            (click)="onLogout()"
+            class="group-hover:text-gray-700 cursor-pointer"
+          >
+            Logout
+          </a>
+        </a>
+        <a
+          class="group flex items-center space-x-4 rounded-md px-4 py-3 text-gray-600"
+          [routerLink]="'/user/settings'"
+          routerLinkActive="true"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5 group-hover:fill-cyan-600"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+              clip-rule="evenodd"
+            />
+          </svg>
+          <a [routerLink]="'/user/settings'" class="group-hover:text-gray-700">
+            Settings
+          </a>
+        </a>
+      </div>
     </div>
+  </div>
 </div>

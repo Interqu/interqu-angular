@@ -1,0 +1,37 @@
+<body class="flex items-center justify-center min-h-screen">
+  <app-nav-side-bar />
+  <a
+    class="group block max-w-xs mx-auto rounded-lg p-6 bg-white ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-sky-500 hover:ring-sky-500 cursor-pointer hover:cursor-click"
+    (click)="openModal()"
+  >
+    <div class="flex items-center space-x-3">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        class="icon-plus"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 6v12m6-6H6"
+        />
+      </svg>
+      <h3 class="text-slate-900 group-hover:text-white text-sm font-semibold">
+        Generate Interview
+      </h3>
+    </div>
+    <p class="text-slate-500 group-hover:text-white text-sm">
+      Generate custom interviews tailored to your resume and target job
+    </p>
+  </a>
+
+  <app-interview-modal
+    *ngIf="isModalOpen"
+    (close)="isModalOpen = false"
+  ></app-interview-modal>
+</body>
