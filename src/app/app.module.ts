@@ -30,7 +30,7 @@ import { InterviewDetailsComponent } from './components/interview-details/interv
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { InterviewPracticeComponent } from './pages/interview-practice/interview-practice.component';
-
+import { ImageCropperModule } from 'ngx-image-cropper';
 //security
 import { AuthService } from './services/authentication/AuthService';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
@@ -101,6 +101,7 @@ import { GenerateCustomInterviewComponent } from './pages/generate-custom-interv
     BrowserAnimationsModule,
     MatInputModule,
     FormsModule,
+    ImageCropperModule,
   ],
   providers: [
     { provide: LocationStrategy, useClass: HashLocationStrategy },

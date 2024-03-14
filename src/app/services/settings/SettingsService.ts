@@ -25,4 +25,22 @@ export class SettingsService {
       }
     );
   }
+  uploadPfp(payload: {
+    pfp: any;
+  }): Observable<any> {
+    const token = localStorage.getItem(environment.interqu_secure_token_key);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token,
+    });
+    return this.http.post<any>(
+      environment.interqu_backend_server_url + '/api/user/getInfo',
+      payload,
+      {
+        headers: headers,
+      }
+    );
+  }
+  
 }
