@@ -115,7 +115,7 @@ export class InterviewPracticeComponent implements OnInit {
       this.recordBtn.style.display = 'block';
       this.accessBtn.style.display = 'none';
     } catch (error) {
-      alert('An unexpected error has occurred!');
+      alert('An unexpected error has occurred! Do you have a camera or did you enable camera access?');
       console.error(error);
     }
   }
@@ -140,8 +140,8 @@ export class InterviewPracticeComponent implements OnInit {
   }
 
   submitBtnClick() {
-    //TODO(alex) submit for analyzing
     const blob = new Blob(this.chunks, { type: 'video/mp4' });
+
   }
 
   restartBtnClick() {
