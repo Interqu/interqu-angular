@@ -53,6 +53,8 @@ import { TeamPageComponent } from './pages/team-page/team-page.component';
 import { SubscriptionPageComponent } from './pages/subscription-page/subscription-page.component';
 import { CustomInterviewModalComponent } from './components/custom-interview-modal/custom-interview-modal.component';
 import { GenerateCustomInterviewComponent } from './pages/generate-custom-interview/generate-custom-interview.component';
+import { HistoryListComponent } from './components/history-list/history-list.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +89,8 @@ import { GenerateCustomInterviewComponent } from './pages/generate-custom-interv
     SubscriptionPageComponent,
     CustomInterviewModalComponent,
     GenerateCustomInterviewComponent,
+    HistoryListComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
