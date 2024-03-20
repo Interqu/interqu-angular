@@ -1,6 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { InterviewSelectionData } from '../interview-select/interview-select.component';
 import { Router } from '@angular/router';
+import { S3Service } from 'src/app/services/s3/S3Service';
 
 @Component({
   selector: 'app-interview-practice',
@@ -30,7 +31,7 @@ export class InterviewPracticeComponent implements OnInit {
   data!: InterviewSelectionData;
   currentTime: number = 0;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private s3Service: S3Service) {
     const state = this.router.getCurrentNavigation()?.extras.state;
     if (state) {
       this.data = state['data'];
@@ -115,7 +116,9 @@ export class InterviewPracticeComponent implements OnInit {
       this.recordBtn.style.display = 'block';
       this.accessBtn.style.display = 'none';
     } catch (error) {
-      alert('An unexpected error has occurred! Do you have a camera or did you enable camera access?');
+      alert(
+        'An unexpected error has occurred! Do you have a camera or did you enable camera access?'
+      );
       console.error(error);
     }
   }
@@ -139,9 +142,23 @@ export class InterviewPracticeComponent implements OnInit {
     }
   }
 
-  submitBtnClick() {
+  async submitBtnClick() {
     const blob = new Blob(this.chunks, { type: 'video/mp4' });
-
+    const fileName = [this.data.question_id, Date.UTC].join('_');
+    const file = new File([blob], fileName + '.mp4', { type: 'video/mp4' });
+    this.s3Service.getPresignedUrl(this.data.question_id).subscribe((res) => {
+      this.s3Service.uploadFileFromPresigned(res, file).subscribe(
+        (progress) => {
+          console.log(`Upload progress: ${progress}%`);
+        },
+        (error) => {
+          console.error('Upload error:', error);
+        },
+        () => {
+          console.log('Upload complete');
+        }
+      );
+    });
   }
 
   restartBtnClick() {
