@@ -1,29 +1,28 @@
-import { Component, ElementRef, Renderer2, AfterViewInit, OnInit, HostListener} from '@angular/core';
-import ApexCharts from 'apexcharts';
+import { Component, ElementRef, Renderer2, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.css']
+  styleUrls: ['./home-page.component.css'],
 })
-
-
 export class HomePageComponent implements OnInit {
-  
-  fadeElements: HTMLElement[];
-  
+  fadeElements: HTMLElement[] = [];
 
   ngAfterViewInit() {
-    this.fadeElements = Array.from(this.elRef.nativeElement.getElementsByClassName("fade") as HTMLCollectionOf<HTMLElement>);
+    this.fadeElements = Array.from(
+      this.elRef.nativeElement.getElementsByClassName(
+        'fade'
+      ) as HTMLCollectionOf<HTMLElement>
+    );
     this.fadeInElements();
   }
   ngOnInit(): void {
     const options = {
       chart: {
-        height: "100%",
-        maxWidth: "100%",
-        type: "area",
-        fontFamily: "Inter, sans-serif",
+        height: '100%',
+        maxWidth: '100%',
+        type: 'area',
+        fontFamily: 'Inter, sans-serif',
         dropShadow: {
           enabled: false,
         },
@@ -38,12 +37,12 @@ export class HomePageComponent implements OnInit {
         },
       },
       fill: {
-        type: "gradient",
+        type: 'gradient',
         gradient: {
           opacityFrom: 0.55,
           opacityTo: 0,
-          shade: "#1C64F2",
-          gradientToColors: ["#1C64F2"],
+          shade: '#1C64F2',
+          gradientToColors: ['#1C64F2'],
         },
       },
       dataLabels: {
@@ -58,18 +57,26 @@ export class HomePageComponent implements OnInit {
         padding: {
           left: 2,
           right: 2,
-          top: 0
+          top: 0,
         },
       },
       series: [
         {
-          name: "New users",
+          name: 'New users',
           data: [6500, 6418, 6456, 6526, 6356, 6456],
-          color: "#1A56DB",
+          color: '#1A56DB',
         },
       ],
       xaxis: {
-        categories: ['01 February', '02 February', '03 February', '04 February', '05 February', '06 February', '07 February'],
+        categories: [
+          '01 February',
+          '02 February',
+          '03 February',
+          '04 February',
+          '05 February',
+          '06 February',
+          '07 February',
+        ],
         labels: {
           show: false,
         },
@@ -84,28 +91,14 @@ export class HomePageComponent implements OnInit {
         show: false,
       },
     };
-
-    if (document.getElementById("area-chart")) {
-      const chart = new ApexCharts(document.getElementById("area-chart"), options);
-      chart.render();
-    }
-
   }
 
-  constructor(
-    private elRef: ElementRef, 
-    private renderer: Renderer2
-    ) {
+  constructor(private elRef: ElementRef, private renderer: Renderer2) {}
 
-    }
-
-
-
-  
   fadeInElements() {
     this.fadeElements.forEach((element, index) => {
       setTimeout(() => {
-        this.renderer.addClass(element, "active");
+        this.renderer.addClass(element, 'active');
       }, 100 * (index + 1));
     });
   }
