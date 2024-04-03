@@ -1,10 +1,10 @@
 <div
   class="p-4 bg-blue-500 text-white cursor-pointer"
-  class="group flex flex-col h-full min-w-[40rem] max-w-[100rem] whitespace-normal break-words rounded-lg border border-blue-gray-50 bg-white p-4 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
+  class="group flex flex-col h-full min-w-[40rem] max-w-[100rem] max-h-[90vh] overflow-y-scroll whitespace-normal break-words rounded-lg border border-blue-gray-50 bg-white p-4 font-sans text-sm font-normal text-blue-gray-500 shadow-lg shadow-blue-gray-500/10 focus:outline-none"
 >
   <div class="mb-2 items-center gap-3">
     <a
-      class="block font-sans text-6xl font-medium leading-relaxed tracking-normal text-blue-gray-900 antialiased transition-colors"
+      class="block font-sans text-3xl font-medium leading-relaxed tracking-normal text-blue-gray-900 antialiased transition-colors"
     >
       {{ data.title }}
     </a>
@@ -14,7 +14,7 @@
     ></app-blob-text>
   </div>
   <p
-    class="block font-sans text-3xl font-normal leading-normal text-gray-700 antialiased align-top"
+    class="block font-sans text-xl font-normal leading-normal text-gray-700 antialiased align-top"
   >
     {{ data.description }}
   </p>
@@ -41,7 +41,7 @@
   <app-blob-text
     [color]="'bg-green-500'"
     [data]="['Tips:']"
-    [size]="'text-lg'"
+    [size]="'text-base'"
   ></app-blob-text>
   <app-ul-list [data]="data.tips"></app-ul-list>
 
@@ -49,7 +49,7 @@
   <app-blob-text
     [color]="'bg-green-500 font-bold'"
     [data]="['What Companies Look For:']"
-    [size]="'text-lg'"
+    [size]="'text-base'"
   ></app-blob-text>
   <h1 class="text-xl"></h1>
   <app-ul-list [data]="data.employers_look_for"></app-ul-list>
@@ -58,7 +58,7 @@
   <app-blob-text
     [color]="'bg-green-500'"
     [data]="['What To Avoid:']"
-    [size]="'text-lg'"
+    [size]="'text-base'"
   ></app-blob-text>
   <app-ul-list [data]="data.avoid_mentioning"></app-ul-list>
 
