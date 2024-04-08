@@ -1,0 +1,80 @@
+<table
+  class="text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 min-w-full"
+>
+  <thead
+    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+  >
+    <tr>
+      <th scope="col" class="px-6 py-3">Question</th>
+      <th scope="col" class="px-6 py-3">Position</th>
+      <th scope="col" class="px-6 py-3">Overall Score</th>
+      <th scope="col" class="px-6 py-3">Timestamp</th>
+      <th scope="col" class="px-6 py-3">Status</th>
+      <th scope="col" class="px-6 py-3">
+        <span class="sr-only">View</span>
+      </th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let row of HistoryListData">
+    <tr
+      class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+    ></tr>
+    <tr
+      class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+    >
+      <th
+        scope="row"
+        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+      >
+        {{ row.question }}
+      </th>
+      <td class="px-6 py-4">
+        {{ row.position }}
+      </td>
+      <td class="px-6 py-4">
+        {{ row.score }}
+      </td>
+      <td class="px-6 py-4">
+        {{ row.timestamp }}
+      </td>
+      <td class="px-6 py-4">
+        <div class="flex items-center">
+          <div
+            *ngIf="row.status != 'Processing'"
+            class="h-2.5 w-2.5 rounded-full me-2"
+            [class.bg-gray-500]="row.status == 'Submitted'"
+            [class.bg-red-500]="row.status == 'Error'"
+            [class.bg-green-500]="row.status == 'Complete'"
+          ></div>
+          <app-spinner
+            *ngIf="row.status == 'Processing'"
+            [classes]="'fill-yellow-500'"
+          ></app-spinner>
+          {{ row.status }}
+        </div>
+      </td>
+      <td class="px-6 py-4 text-right">
+        <a
+          data-modal-target="deleteModal"
+          data-modal-toggle="deleteModal"
+          *ngIf="row.status == 'Submitted' || row.status == 'Processing'"
+          href="{{ row.link }}"
+          class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >Cancel
+        </a>
+        <a
+          *ngIf="row.status == 'Complete'"
+          href="/#/user/results/{{ row.link }}"
+          class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >View</a
+        >
+        <a
+          *ngIf="row.status == 'Error'"
+          href="{{ row.link }}"
+          class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >Retry</a
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>
