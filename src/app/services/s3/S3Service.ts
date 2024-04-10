@@ -7,6 +7,7 @@ import {
 } from '@angular/common/http';
 import { Observable, filter, map } from 'rxjs';
 import { environment } from 'src/environments/environments';
+import { PresignedUrlObject } from 'src/app/pages/interview-practice/interview-practice.component';
 
 @Injectable({
   providedIn: 'root',
@@ -16,17 +17,15 @@ export class S3Service {
 
   data: any;
 
-  getPresignedUrl(fileName: string): Observable<any> {
-    const token = localStorage.getItem(environment.interqu_secure_token_key);
-
+  getPresignedUrl(fileName: string): Observable<PresignedUrlObject> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      Authorization: 'Bearer ' + token,
     });
-    const params = new HttpParams().set('fileName', fileName);
+    const params = new HttpParams().set('questionId', fileName);
 
     return this.http.get<any>(
-      environment.interqu_backend_server_url + '/api/s3/generate-presigned-url',
+      environment.interqu_backend_server_url +
+        '/api/s3/generate-interview-upload-presigned-url',
       {
         headers: headers,
         params: params,
@@ -34,7 +33,7 @@ export class S3Service {
     );
   }
 
-  uploadFileFromPresigned(presignedUrl: string, file: File): Observable<any> {
+  uploadFileFromPresigned(file: File, presignedUrl: string): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': file.type,
     });
@@ -49,9 +48,9 @@ export class S3Service {
         filter((event) => event.type === HttpEventType.UploadProgress),
         // Map the progress event to a percentage
         map((event) => {
-        //   if (event.total) {
-        //     return Math.round((100 * event.loaded) / event.total);
-        //   }
+          //   if (event.total) {
+          //     return Math.round((100 * event.loaded) / event.total);
+          //   }
           return 0; // In case there's no total size reported
         })
       );

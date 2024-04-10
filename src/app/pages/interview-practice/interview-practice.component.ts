@@ -3,6 +3,12 @@ import { InterviewSelectionData } from '../interview-select/interview-select.com
 import { Router } from '@angular/router';
 import { S3Service } from 'src/app/services/s3/S3Service';
 
+export interface PresignedUrlObject {
+  interview_id: string;
+  presigned_url: string;
+  video_file_name: string;
+}
+
 @Component({
   selector: 'app-interview-practice',
   templateUrl: './interview-practice.component.html',
@@ -88,11 +94,13 @@ export class InterviewPracticeComponent implements OnInit {
 
   async accessCamera() {
     try {
-      this.video.srcObject = await navigator.mediaDevices.getUserMedia({
+      const stream = await navigator.mediaDevices.getUserMedia({
         video: true,
         audio: true,
       });
-      this.mediaRecorder = new MediaRecorder(this.video.srcObject);
+      this.video.srcObject = stream;
+      this.video.muted = true;
+      this.mediaRecorder = new MediaRecorder(stream);
       this.mediaRecorder.addEventListener('dataavailable', (event: any) => {
         this.chunks.push(event.data);
       });
@@ -143,22 +151,29 @@ export class InterviewPracticeComponent implements OnInit {
   }
 
   async submitBtnClick() {
-    const blob = new Blob(this.chunks, { type: 'video/mp4' });
-    const fileName = [this.data.question_id, Date.UTC].join('_');
-    const file = new File([blob], fileName + '.mp4', { type: 'video/mp4' });
-    this.s3Service.getPresignedUrl(this.data.question_id).subscribe((res) => {
-      this.s3Service.uploadFileFromPresigned(res, file).subscribe(
-        (progress) => {
-          console.log(`Upload progress: ${progress}%`);
-        },
-        (error) => {
-          console.error('Upload error:', error);
-        },
-        () => {
-          console.log('Upload complete');
-        }
-      );
-    });
+    const questionId = this.data.question_id;
+    this.s3Service
+      .getPresignedUrl(questionId)
+      .subscribe((res: PresignedUrlObject) => {
+        console.log(res);
+        const blob = new Blob(this.chunks, { type: 'video/mp4' });
+        const file = new File([blob], res.video_file_name + '.mp4', {
+          type: 'video/mp4',
+        });
+        this.s3Service
+          .uploadFileFromPresigned(file, res.presigned_url)
+          .subscribe(
+            (progress) => {
+              console.log(`Upload progress: ${progress}%`);
+            },
+            (error) => {
+              console.error('Upload error:', error);
+            },
+            () => {
+              console.log('Upload complete');
+            }
+          );
+      });
   }
 
   restartBtnClick() {
