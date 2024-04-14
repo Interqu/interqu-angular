@@ -2,6 +2,23 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { InterviewService } from 'src/app/services/interview/InterviewService';
 
+export interface Question {
+  average_audio_rating: number;
+  average_context_rating: number;
+  average_overall_rating: number;
+  average_video_rating: number;
+  avoid_mentioning: string[];
+  companies: string[];
+  employers_look_for: string[];
+  is_verified: boolean;
+  position: string;
+  question: string;
+  question_id: string;
+  rating: number;
+  skills: string[];
+  tips: string[];
+}
+
 export interface InterviewSelectionData {
   title: string;
   description: string;
