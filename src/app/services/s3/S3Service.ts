@@ -33,13 +33,13 @@ export class S3Service {
     );
   }
 
-  uploadFileFromPresigned(file: File, presignedUrl: string): Observable<any> {
+  uploadFileFromPresigned(blob: Blob, presignedUrl: string): Observable<any> {
     const headers = new HttpHeaders({
-      'Content-Type': file.type,
+      'Content-Type': 'video/mp4',
     });
 
     return this.http
-      .put(presignedUrl, file, {
+      .put(presignedUrl, blob, {
         headers: headers,
         reportProgress: true,
         observe: 'events',

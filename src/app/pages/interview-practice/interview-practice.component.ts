@@ -30,7 +30,7 @@ export class InterviewPracticeComponent implements OnInit {
   private time: any;
   private progressBarFill: any;
   private progressBar: any;
-  private duration: number = 120;
+  private duration: number = 300;
   private chunks: any[] = [];
   private mediaRecorder: any;
   private countDownInterval: any;
@@ -100,21 +100,21 @@ export class InterviewPracticeComponent implements OnInit {
       });
       this.video.srcObject = stream;
       this.video.muted = true;
-      this.mediaRecorder = new MediaRecorder(stream);
+      let options: any = { mimeType: 'video/mp4' };
+      this.mediaRecorder = new MediaRecorder(stream, options);
       this.mediaRecorder.addEventListener('dataavailable', (event: any) => {
-        this.chunks.push(event.data);
+        this.chunks.push(event);
       });
-      this.mediaRecorder.addEventListener('stop', () => {
+      this.mediaRecorder.addEventListener('stop', async () => {
+        stream.getTracks().forEach((track) => track.stop());
         this.stopBtn.style.display = 'none';
         this.restartBtn.style.display = 'block';
         this.submitBtn.style.display = 'block';
         this.progressBarFill.style.width = '100%';
-        let source = document.createElement('source');
-        source.src = URL.createObjectURL(
+        clearInterval(this.countDownInterval);
+        this.video.src = URL.createObjectURL(
           new Blob(this.chunks, { type: 'video/mp4' })
         );
-        clearInterval(this.countDownInterval);
-        this.video.appendChild(source);
         this.video.srcObject = null;
         this.video.autoplay = false;
         this.video.muted = false;
@@ -155,13 +155,9 @@ export class InterviewPracticeComponent implements OnInit {
     this.s3Service
       .getPresignedUrl(questionId)
       .subscribe((res: PresignedUrlObject) => {
-        console.log(res);
         const blob = new Blob(this.chunks, { type: 'video/mp4' });
-        const file = new File([blob], res.video_file_name + '.mp4', {
-          type: 'video/mp4',
-        });
         this.s3Service
-          .uploadFileFromPresigned(file, res.presigned_url)
+          .uploadFileFromPresigned(blob, res.presigned_url)
           .subscribe(
             (progress) => {
               console.log(`Upload progress: ${progress}%`);
