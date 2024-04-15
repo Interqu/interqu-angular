@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import {env} from './aws-exports';
+import { environment } from 'src/environments/environments';
 
 
 @Injectable({
@@ -15,14 +15,14 @@ export class AppSyncService {
   openWebSocketConnection(): void {
     // Establish WebSocket connection to AWS AppSync endpoint
     const creds = {
-        "host":env.host,
-        "x-api-key":env.apiKey
+        "host":environment.interqu_appsync_host,
+        "x-api-key":environment.interqu_appsync_api_key
     }
     const header = window.btoa(JSON.stringify(creds));
     const payload = window.btoa(JSON.stringify({}));
 
 
-    this.socket = new WebSocket(`wss://${env.realtime_host}/graphql?header=${header}&payload=${payload}`, ["graphql-ws"]);
+    this.socket = new WebSocket(`wss://${environment.interqu_appsync_realtime_host}/graphql?header=${header}&payload=${payload}`, ["graphql-ws"]);
     this.socket.onopen = this.onSocketOpen.bind(this);
     this.socket.onmessage = this.onSocketMessage.bind(this);
     this.socket.onerror = this.onSocketError.bind(this);
@@ -83,8 +83,8 @@ export class AppSyncService {
           }),
           extensions: {
             authorization: {
-              "x-api-key": env.apiKey,
-              host: env.host,
+              "x-api-key": environment.interqu_appsync_api_key,
+              host: environment.interqu_appsync_host,
             },
           },
         },
