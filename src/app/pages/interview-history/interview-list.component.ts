@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InterviewRowData, dataset } from './data';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { SelectionModel } from '@angular/cdk/collections';
+
+import { AppSyncService } from 'src/app/services/appsync/AppSyncService';
+
 
 import {
   animate,
@@ -28,6 +31,14 @@ import {
     ]),
   ],
 })
-export class InterviewListComponent {
+export class InterviewListComponent implements OnInit {
   interviews: InterviewRowData[] = dataset;
+
+  constructor(private appSyncService: AppSyncService) { }
+  ngOnInit():void{
+    this.appSyncService.openWebSocketConnection()
+  }
+  clickButton(){
+    this.appSyncService.subscribe();
+  }
 }
