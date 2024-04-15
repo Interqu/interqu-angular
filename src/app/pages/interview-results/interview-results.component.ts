@@ -19,8 +19,6 @@ export enum AudioEmotions {
   SURPRISE = 'SURPRISE',
 }
 
-export enum AudioEmotion {}
-
 // Refer to database model
 export interface InterviewResult {
   interview_id: string;
@@ -62,6 +60,7 @@ import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
 import { InterviewService } from 'src/app/services/interview/InterviewService';
 import { Question } from '../interview-select/interview-select.component';
+import { ActivatedRoute } from '@angular/router';
 Chart.register(...registerables);
 
 @Component({
@@ -70,135 +69,45 @@ Chart.register(...registerables);
   styleUrls: ['./interview-results.component.css'],
 })
 export class InterviewResultsComponent {
-  // @ViewChild('radarChart') private chartRef!: ElementRef<HTMLCanvasElement>;
-  // radarChart: any;
-  // @ViewChild('videoChart')
-  // private videoChartRef!: ElementRef<HTMLCanvasElement>;
-  // videoChart: any;
+  interviewId?: string | null;
+  isLoaded!: boolean;
+  truncatedSummary?: string;
 
   result: InterviewResult | null = null;
 
-  constructor(private interviewService: InterviewService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private interviewService: InterviewService
+  ) {
+    this.isLoaded = false;
+  }
 
   ngOnInit() {
-    this.interviewService.getResult('eakajlfkj2hkl3h4y784').subscribe((res) => {
-      //TODO get from URL
-      this.result = res;
+    this.route.queryParams.subscribe((queryParams) => {
+      this.interviewId = queryParams['interviewId'];
+      if (this.interviewId != null) {
+        this.interviewService.getResult(this.interviewId).subscribe(
+          (res) => {
+            this.result = res;
+            this.isLoaded = true;
+            this.truncatedSummary = this.truncateText(
+              this.result.analysis.overall.overall_summary,
+              500
+            );
+          },
+          (err) => {
+            this.result = null;
+            this.isLoaded = false;
+          }
+        );
+      }
     });
   }
 
   ngAfterViewInit() {}
-
-  // ngAfterViewInit(): void {
-  //   this.radarChart = new Chart(this.chartRef.nativeElement, {
-  //     type: 'radar',
-  //     data: {
-  //       labels: [
-  //         'Eye Contact',
-  //         'Confidence/Flow',
-  //         'Expression',
-  //         'Filler Words',
-  //         'Technical Knowledge',
-  //         'Communication Skills',
-  //         'Problem Solving',
-  //         'Team Fit',
-  //         'Enthusiasm',
-  //         'Body Language',
-  //       ],
-  //       datasets: [
-  //         {
-  //           label: 'Recent Attempt',
-  //           data: [65, 59, 90, 81, 56, 55, 40, 69, 80, 67],
-  //           fill: true,
-  //           backgroundColor: 'rgba(255, 99, 132, 0.2)',
-  //           borderColor: 'rgb(255, 99, 132)',
-  //           pointBackgroundColor: 'rgb(255, 99, 132)',
-  //           pointBorderColor: '#fff',
-  //           pointHoverBackgroundColor: '#fff',
-  //           pointHoverBorderColor: 'rgb(255, 99, 132)',
-  //         },
-  //         {
-  //           label: 'Previous Attempt',
-  //           data: [99, 48, 40, 90, 96, 50, 90, 50, 60, 88],
-  //           fill: true,
-  //           backgroundColor: 'rgba(54, 162, 235, 0.2)',
-  //           borderColor: 'rgb(54, 162, 235)',
-  //           pointBackgroundColor: 'rgb(54, 162, 235)',
-  //           pointBorderColor: '#fff',
-  //           pointHoverBackgroundColor: '#fff',
-  //           pointHoverBorderColor: 'rgb(54, 162, 235)',
-  //         },
-  //       ],
-  //     },
-  //     options: {
-  //       elements: {
-  //         line: {
-  //           borderWidth: 3,
-  //         },
-  //       },
-  //       scales: {
-  //         r: {
-  //           // 'r' for radial scale in Chart.js 3.x and later
-  //           min: 1, // Minimum scale value
-  //           max: 100, // Maximum scale value
-  //           ticks: {
-  //             stepSize: 10, // Step size
-  //             // You can add more tick configuration here
-  //           },
-  //           // You can add more scale configuration here
-  //         },
-  //       },
-  //     },
-  //   });
-  //   // this.initVideoChart();
-  //}
-
-  // private initVideoChart(): void {
-  //   // Step 2: Process data to count occurrences of each timestamp string
-  //   const timestamps = this.result.analysis.video.video_timestamps;
-  //   const timestampCounts: TimestampCount =
-  //     this.result.analysis.video.video_timestamps.reduce(
-  //       (acc: TimestampCount, timestamp: string) => {
-  //         acc[timestamp] = (acc[timestamp] || 0) + 1;
-  //         return acc;
-  //       },
-  //       {}
-  //     );
-
-  //   // Step 3: Prepare chart data
-  //   const chartLabels = Object.keys(timestampCounts);
-  //   const chartData = chartLabels.map((label) => timestampCounts[label]);
-
-  //   // Step 4: Set up Chart.js
-  //   this.videoChart = new Chart(this.videoChartRef.nativeElement, {
-  //     type: 'pie',
-  //     data: {
-  //       labels: chartLabels,
-  //       datasets: [
-  //         {
-  //           label: '# of Occurrences',
-  //           data: chartData,
-  //           backgroundColor: [
-  //             'rgba(255, 99, 132, 0.2)', // Red
-  //             'rgba(54, 162, 235, 0.2)', // Blue
-  //             'rgba(255, 206, 86, 0.2)', // Yellow
-  //           ],
-  //           borderColor: [
-  //             'rgba(255,99,132,1)',
-  //             'rgba(54, 162, 235, 1)',
-  //             'rgba(255, 206, 86, 1)',
-  //           ],
-  //           borderWidth: 1,
-  //         },
-  //       ],
-  //     },
-  //     options: {
-  //       scales: {
-  //         y: {
-  //           beginAtZero: true,
-  //         },
-  //       },
-  //     },
-  //   });
-  // }
+  truncateText(text: string, maxLength: number): string {
+    return text.length > maxLength
+      ? `${text.substring(0, maxLength)}...`
+      : text;
+  }
 }

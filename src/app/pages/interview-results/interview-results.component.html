@@ -1,5 +1,5 @@
 <!-- only show is result is there, otherwise, show empty state -->
-<div *ngIf="result">
+<div *ngIf="result && isLoaded">
   <body class="flex bg-gray-100 h-screen overflow-hidden">
     <app-nav-side-bar />
     <div class="flex-grow relative antialiased bg-gray-100 p-4 overflow-y-auto">
@@ -94,7 +94,7 @@
                 <p
                   class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm"
                 >
-                  {{ result.analysis.overall.overall_summary }}
+                  {{ truncatedSummary }}
                 </p>
               </div>
               <div class="flex justify-between items-end">
@@ -120,34 +120,35 @@
               >
                 Score By Category
               </h2>
-              <a href="#" class="text-xs text-gray-800 font-semibold uppercase"
-                >More</a
-              >
             </div>
 
             <app-result-score-categories
               [category]="'Overall Analysis'"
               [score]="result.analysis.overall.overall_score"
               [description]="'Weighted average between categories'"
-              [icon_link]="'https://atom.dzulfarizan.com/assets/dish-2.png'"
+              [icon_link]="
+                'assets/icons/results-page/overall-analysis-icon.svg'
+              "
             ></app-result-score-categories>
             <app-result-score-categories
               [category]="'Contextual Analysis'"
               [score]="result.analysis.context.context_score"
               [description]="'Analysis of the transcript'"
-              [icon_link]="'https://atom.dzulfarizan.com/assets/dish-2.png'"
+              [icon_link]="
+                'assets/icons/results-page/context-analysis-icon.svg'
+              "
             ></app-result-score-categories>
             <app-result-score-categories
               [category]="'Facial Expressions'"
               [score]="result.analysis.video.video_score"
               [description]="'Your visual emoitions throughout the interview'"
-              [icon_link]="'https://atom.dzulfarizan.com/assets/dish-2.png'"
+              [icon_link]="'assets/icons/results-page/facial-analysis-icon.svg'"
             ></app-result-score-categories>
             <app-result-score-categories
               [category]="'Confidence/Flow'"
               [score]="result.analysis.audio.audio_score"
               [description]="'Your fluency & tone throughout the interview'"
-              [icon_link]="'https://atom.dzulfarizan.com/assets/dish-2.png'"
+              [icon_link]="'assets/icons/results-page/audio-analysis-icon.svg'"
             ></app-result-score-categories>
           </div>
           <!-- End Second Row -->
@@ -169,31 +170,10 @@
               <canvas #radarChart></canvas>
             </div>
             <div
-              class="col-span-3 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6"
+              class="col-span-2 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6"
             >
-              <div class="flex justify-between items-center">
-                <h2 class="text-sm text-gray-600 font-bold tracking-wide">
-                  Recent Interviews
-                </h2>
-                <a
-                  href="#"
-                  class="px-4 py-2 text-xs bg-blue-100 text-blue-500 rounded uppercase tracking-wider font-semibold hover:bg-blue-300"
-                  >More</a
-                >
-              </div>
-              <ul class="divide-y-2 divide-gray-100 overflow-x-auto w-full">
-                <li
-                  class="py-3 flex justify-between text-sm text-gray-500 font-semibold"
-                >
-                  <p class="px-4 font-semibold">Yesterday</p>
-                  <p class="px-4 text-gray-600">Apple</p>
-                  <p class="px-4 tracking-wider">Software Dev.</p>
-                  <p class="px-4 text-blue-600">View Results</p>
-                  <p class="md:text-base text-gray-800 flex items-center gap-2">
-                    A+
-                  </p>
-                </li>
-              </ul>
+              <canvas #videoChart></canvas>
+              <canvas #radarChart></canvas>
             </div>
           </div>
           <!-- End Third Row -->
