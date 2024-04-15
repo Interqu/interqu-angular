@@ -1,5 +1,10 @@
 import { Component, AfterViewInit, ViewChild, ElementRef } from '@angular/core';
 import { Chart, registerables } from 'chart.js';
+
+
+
+
+
 Chart.register(...registerables);
 
 @Component({
@@ -10,6 +15,8 @@ Chart.register(...registerables);
 export class InterviewResultsComponent {
   @ViewChild('radarChart') private chartRef!: ElementRef<HTMLCanvasElement>;
   radarChart: any;
+
+
 
   ngAfterViewInit(): void {
     this.radarChart = new Chart(this.chartRef.nativeElement, {
@@ -69,4 +76,5 @@ export class InterviewResultsComponent {
       },
     });
   }
+
 }
