@@ -100,10 +100,9 @@ export class InterviewPracticeComponent implements OnInit {
       });
       this.video.srcObject = stream;
       this.video.muted = true;
-      let options: any = { mimeType: 'video/mp4' };
-      this.mediaRecorder = new MediaRecorder(stream, options);
+      this.mediaRecorder = new MediaRecorder(stream);
       this.mediaRecorder.addEventListener('dataavailable', (event: any) => {
-        this.chunks.push(event);
+        this.chunks.push(event.data);
       });
       this.mediaRecorder.addEventListener('stop', async () => {
         stream.getTracks().forEach((track) => track.stop());
@@ -112,9 +111,11 @@ export class InterviewPracticeComponent implements OnInit {
         this.submitBtn.style.display = 'block';
         this.progressBarFill.style.width = '100%';
         clearInterval(this.countDownInterval);
-        this.video.src = URL.createObjectURL(
+        let source = document.createElement('source');
+        source.src = URL.createObjectURL(
           new Blob(this.chunks, { type: 'video/mp4' })
         );
+        this.video.appendChild(source);
         this.video.srcObject = null;
         this.video.autoplay = false;
         this.video.muted = false;
@@ -151,6 +152,7 @@ export class InterviewPracticeComponent implements OnInit {
   }
 
   async submitBtnClick() {
+    this.submitBtn.disabled = true;
     const questionId = this.data.question_id;
     this.s3Service
       .getPresignedUrl(questionId)
