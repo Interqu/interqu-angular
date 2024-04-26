@@ -18,7 +18,7 @@ export interface PresignedUrlObject {
   providedIn: 'root',
 })
 export class InterviewPracticeComponent implements OnInit {
-  //TODO create statemachine functionality and use ngIf for the buttons instead of changing its style
+  //TODO (derek) use strongly typed variables
   private video: any;
   private accessBtn: any;
   private recordBtn: any;
@@ -128,7 +128,6 @@ export class InterviewPracticeComponent implements OnInit {
       alert(
         'An unexpected error has occurred! Do you have a camera or did you enable camera access?'
       );
-      console.error(error);
     }
   }
 
@@ -146,8 +145,7 @@ export class InterviewPracticeComponent implements OnInit {
     try {
       this.mediaRecorder.stop();
     } catch (error) {
-      alert('An unexpected error has occurred!');
-      console.error(error);
+      alert('An unexpected error has occurred!' + error);
     }
   }
 
@@ -162,13 +160,16 @@ export class InterviewPracticeComponent implements OnInit {
           .uploadFileFromPresigned(blob, res.presigned_url)
           .subscribe(
             (progress) => {
-              console.log(`Upload progress: ${progress}%`);
+              this.submitBtn.innerHTML = progress;
             },
             (error) => {
-              console.error('Upload error:', error);
+              //TODO (derek) make reupload function
+              this.submitBtn.innerHTML = "Upload Failed";
+              console.log(error);
             },
             () => {
-              console.log('Upload complete');
+              this.submitBtn.innerHTML = "Upload Success";
+              this.router.navigate(['/user/history']);
             }
           );
       });
