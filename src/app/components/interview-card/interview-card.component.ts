@@ -30,7 +30,6 @@ export class InterviewCardComponent {
     };
   }
   togglePopup() {
-    console.log(this.showPopup);
     this.showPopup = !this.showPopup;
   }
 }
