@@ -30,4 +30,15 @@ export class InterviewService {
       { headers: headers, interview_id: interviewId }
     );
   }
+
+  getAllInterviewResult(): Observable<InterviewResult[]> {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+    });
+    return this.http.post<InterviewResult[]>(
+      environment.interqu_backend_server_url +
+        '/api/interview/getInterviewResult',
+      { headers: headers }
+    );
+  }
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { InterviewRowData, dataset } from './data';
+import { InterviewRowData, status } from './data';
 import { MatSort, Sort, MatSortModule } from '@angular/material/sort';
 import { ViewChild } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
@@ -12,6 +12,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
+import { InterviewService } from 'src/app/services/interview/InterviewService';
 
 @Component({
   selector: 'app-interview-list',
@@ -29,5 +30,24 @@ import {
   ],
 })
 export class InterviewListComponent {
-  interviews: InterviewRowData[] = dataset;
+  interviews: InterviewRowData[] = [];
+
+  constructor(private interviewService: InterviewService) {}
+
+  ngOnInit() {
+    this.interviewService.getAllInterviewResult().subscribe((res) => {
+      res.forEach((result: any) => {
+        var rowData: InterviewRowData = {
+          interview_id: result.interview_id,
+          question: result.question.question,
+          position: result.question.position,
+          timestamp: result.timestamp,
+          score: result.analysis.overall.overall_score,
+          status: status.DONE, //TODO
+          link: '#/user/results?interviewId=' + result.interview_id,
+        };
+        this.interviews.push(rowData);
+      });
+    });
+  }
 }
