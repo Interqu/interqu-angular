@@ -25,6 +25,7 @@
     "@fortawesome/fontawesome-svg-core": "^6.5.1",
     "@fortawesome/free-solid-svg-icons": "^6.5.1",
     "apexcharts": "^3.46.0",
+    "aws-sdk": "^2.1581.0",
     "chart.js": "^4.4.1",
     "lineicons": "^1.0.3",
     "rxjs": "~7.8.1",

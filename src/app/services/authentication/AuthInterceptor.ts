@@ -8,6 +8,10 @@ import {
 import { Observable } from 'rxjs';
 import { AuthService } from './AuthService';
 import { environment } from 'src/environments/environments';
+import {
+  AUTHORIZATION_HEADER,
+  AUTHORIZAION_PREFIX,
+} from 'src/app/constants/Constants';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -18,9 +22,16 @@ export class AuthInterceptor implements HttpInterceptor {
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
     const idToken = localStorage.getItem(environment.interqu_secure_token_key);
-    if (this.authService.isAuthenticated()) {
+    if (
+      this.authService.isAuthenticated() &&
+      req.url.includes(environment.interqu_backend_server_url)
+    ) {
+      // If user is authenticated and the request is going to Interqu backend, then add authorization token
       const cloned = req.clone({
-        headers: req.headers.set('Authorization', 'Bearer ' + idToken),
+        headers: req.headers.set(
+          AUTHORIZATION_HEADER,
+          AUTHORIZAION_PREFIX + idToken
+        ),
       });
       return next.handle(cloned);
     } else {

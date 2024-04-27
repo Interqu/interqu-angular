@@ -24,7 +24,7 @@
       <span>Login with Google</span>
     </button>
     <div class="relative mt-10 h-px bg-gray-300">
-      <div class="absolute left-0 top-0 flex justify-center w-full -mt-2">
+      <div class="absolute left-0 top-0 flex justify-center w-full-mt-2">
         <span class="bg-white px-4 text-xs text-gray-500 uppercase"
           >Or Login With Email</span
         >
@@ -50,13 +50,24 @@
                 stroke-width="2"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 64 64"
+                id="email"
               >
                 <path
-                  d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"
-                />
+                  fill="#222"
+                  d="M53.42 53.32H10.58a8.51 8.51 0 0 1-8.5-8.5V19.18a8.51 8.51 0 0 1 8.5-8.5h42.84a8.51 8.51 0 0 1 8.5 8.5v25.64a8.51 8.51 0 0 1-8.5 8.5ZM10.58 13.68a5.5 5.5 0 0 0-5.5 5.5v25.64a5.5 5.5 0 0 0 5.5 5.5h42.84a5.5 5.5 0 0 0 5.5-5.5V19.18a5.5 5.5 0 0 0-5.5-5.5Z"
+                ></path>
+                <path
+                  fill="#222"
+                  d="M32 38.08a8.51 8.51 0 0 1-5.13-1.71L3.52 18.71a1.5 1.5 0 1 1 1.81-2.39L28.68 34a5.55 5.55 0 0 0 6.64 0l23.35-17.68a1.5 1.5 0 1 1 1.81 2.39L37.13 36.37A8.51 8.51 0 0 1 32 38.08Z"
+                ></path>
+                <path
+                  fill="#222"
+                  d="M4.17 49.14a1.5 1.5 0 0 1-1-2.62l18.4-16.41a1.5 1.5 0 0 1 2 2.24L5.17 48.76a1.46 1.46 0 0 1-1 .38zm55.66 0a1.46 1.46 0 0 1-1-.38l-18.4-16.41a1.5 1.5 0 1 1 2-2.24l18.39 16.41a1.5 1.5 0 0 1-1 2.62z"
+                ></path>
               </svg>
             </div>
-
             <input
               id="email"
               type="email"
@@ -146,9 +157,10 @@
               </svg>
             </span>
           </button>
-          
         </div>
-        <span *ngIf="isInvalid" class = "error-message">Incorrect username or password</span>
+        <span *ngIf="isInvalid" class="error-message"
+          >Incorrect username or password</span
+        >
       </form>
     </div>
     <div class="flex justify-center items-center mt-6">

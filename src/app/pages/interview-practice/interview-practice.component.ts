@@ -1,6 +1,13 @@
 import { Component, Injectable, OnInit } from '@angular/core';
 import { InterviewSelectionData } from '../interview-select/interview-select.component';
 import { Router } from '@angular/router';
+import { S3Service } from 'src/app/services/s3/S3Service';
+
+export interface PresignedUrlObject {
+  interview_id: string;
+  presigned_url: string;
+  video_file_name: string;
+}
 
 @Component({
   selector: 'app-interview-practice',
@@ -11,7 +18,7 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class InterviewPracticeComponent implements OnInit {
-  //TODO create statemachine functionality and use ngIf for the buttons instead of changing its style
+  //TODO (derek) use strongly typed variables
   private video: any;
   private accessBtn: any;
   private recordBtn: any;
@@ -23,14 +30,14 @@ export class InterviewPracticeComponent implements OnInit {
   private time: any;
   private progressBarFill: any;
   private progressBar: any;
-  private duration: number = 120;
+  private duration: number = 300;
   private chunks: any[] = [];
   private mediaRecorder: any;
   private countDownInterval: any;
   data!: InterviewSelectionData;
   currentTime: number = 0;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private s3Service: S3Service) {
     const state = this.router.getCurrentNavigation()?.extras.state;
     if (state) {
       this.data = state['data'];
@@ -87,24 +94,27 @@ export class InterviewPracticeComponent implements OnInit {
 
   async accessCamera() {
     try {
-      this.video.srcObject = await navigator.mediaDevices.getUserMedia({
+      const stream = await navigator.mediaDevices.getUserMedia({
         video: true,
         audio: true,
       });
-      this.mediaRecorder = new MediaRecorder(this.video.srcObject);
+      this.video.srcObject = stream;
+      this.video.muted = true;
+      this.mediaRecorder = new MediaRecorder(stream);
       this.mediaRecorder.addEventListener('dataavailable', (event: any) => {
         this.chunks.push(event.data);
       });
-      this.mediaRecorder.addEventListener('stop', () => {
+      this.mediaRecorder.addEventListener('stop', async () => {
+        stream.getTracks().forEach((track) => track.stop());
         this.stopBtn.style.display = 'none';
         this.restartBtn.style.display = 'block';
         this.submitBtn.style.display = 'block';
         this.progressBarFill.style.width = '100%';
+        clearInterval(this.countDownInterval);
         let source = document.createElement('source');
         source.src = URL.createObjectURL(
           new Blob(this.chunks, { type: 'video/mp4' })
         );
-        clearInterval(this.countDownInterval);
         this.video.appendChild(source);
         this.video.srcObject = null;
         this.video.autoplay = false;
@@ -115,8 +125,9 @@ export class InterviewPracticeComponent implements OnInit {
       this.recordBtn.style.display = 'block';
       this.accessBtn.style.display = 'none';
     } catch (error) {
-      alert('An unexpected error has occurred!');
-      console.error(error);
+      alert(
+        'An unexpected error has occurred! Do you have a camera or did you enable camera access?'
+      );
     }
   }
 
@@ -134,14 +145,34 @@ export class InterviewPracticeComponent implements OnInit {
     try {
       this.mediaRecorder.stop();
     } catch (error) {
-      alert('An unexpected error has occurred!');
-      console.error(error);
+      alert('An unexpected error has occurred!' + error);
     }
   }
 
-  submitBtnClick() {
-    //TODO(alex) submit for analyzing
-    const blob = new Blob(this.chunks, { type: 'video/mp4' });
+  async submitBtnClick() {
+    this.submitBtn.disabled = true;
+    const questionId = this.data.question_id;
+    this.s3Service
+      .getPresignedUrl(questionId)
+      .subscribe((res: PresignedUrlObject) => {
+        const blob = new Blob(this.chunks, { type: 'video/mp4' });
+        this.s3Service
+          .uploadFileFromPresigned(blob, res.presigned_url)
+          .subscribe(
+            (progress) => {
+              this.submitBtn.innerHTML = progress;
+            },
+            (error) => {
+              //TODO (derek) make reupload function
+              this.submitBtn.innerHTML = "Upload Failed";
+              console.log(error);
+            },
+            () => {
+              this.submitBtn.innerHTML = "Upload Success";
+              this.router.navigate(['/user/history']);
+            }
+          );
+      });
   }
 
   restartBtnClick() {
