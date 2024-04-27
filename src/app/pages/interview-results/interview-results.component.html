@@ -1,199 +1,184 @@
-<!-- https://tailwindcomponents.com/component/simple-admin-dashboard -->
-
-<body class="flex bg-gray-100 h-screen overflow-hidden">
+<!-- only show is result is there, otherwise, show empty state -->
+<div *ngIf="result && isLoaded">
+  <body class="flex bg-gray-100 h-screen overflow-hidden">
     <app-nav-side-bar />
     <div class="flex-grow relative antialiased bg-gray-100 p-4 overflow-y-auto">
-        <div class="container mx-w-6xl mx-auto py-4">
-            <div class="flex flex-col space-y-8">
-                <!-- First Row -->
-                <div class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-5 px-4 xl:p-0 gap-y-4 md:gap-6">
-                    <div class="md:col-span-2 xl:col-span-3 bg-white p-6 rounded-2xl border border-gray-50">
-                        <div class="flex flex-col space-y-6 md:h-full md:justify-between">
-                            <div class="flex justify-between">
-                                <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">
-                                    Interview ID: KLJ3-JK9P
-                                </span>
-                                <span class="text-xs text-gray-500 font-semibold uppercase tracking-wider">
-                                    Scenario: COMPANY NAME
-                                </span>
-                            </div>
-                            <div class="flex gap-2 md:gap-4 justify-between items-center">
-                                <!-- <div class="flex flex-col space-y-4">
-                                    <h2 class="text-gray-800 font-bold tracking-widest leading-tight">Derol's Savings
-                                        Account</h2>
-                                    <div class="flex items-center gap-4">
-                                        <p class="text-lg text-gray-600 tracking-wider">**** **** *321</p>
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
-                                            viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                        </svg>
-                                    </div>
-                                </div>
-                                <h2 class="text-lg md:text-xl xl:text-3xl text-gray-700 font-black tracking-wider">
-                                    <span class="md:text-xl">$</span>
-                                    92,817.45
-                                </h2> -->
-                                <video class="w-full shadow-lg rounded-md" autoplay loop controls muted>
-                                    <source src="https://tecdn.b-cdn.net/img/video/Sail-Away.mp4" type="video/mp4" />
-                                </video>
-                            </div>
+      <div class="container mx-w-6xl mx-auto py-4">
+        <div class="flex flex-col space-y-8">
+          <!-- First Row -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-5 px-4 xl:p-0 gap-y-4 md:gap-6"
+          >
+            <div
+              class="md:col-span-2 xl:col-span-3 bg-white p-6 rounded-2xl border border-gray-50"
+            >
+              <div class="flex flex-col space-y-6 md:h-full md:justify-between">
+                <div class="flex justify-between">
+                  <span
+                    class="text-xs text-gray-500 font-semibold uppercase tracking-wider"
+                  >
+                    Interview ID: {{ result.interview_id }}
+                  </span>
+                  <span
+                    class="text-xs text-gray-500 font-semibold uppercase tracking-wider"
+                  >
+                    User: {{ result.user_id }}
+                  </span>
+                </div>
+                <div class="flex gap-2 md:gap-4 justify-between items-center">
+                  <video
+                    class="w-full shadow-lg rounded-md"
+                    autoplay
+                    loop
+                    controls
+                    muted
+                  >
+                    <source src="{{ result.file_id }}" type="video/mp4" />
+                  </video>
+                </div>
 
-                            <div class="flex gap-2 md:gap-4">
-                                <a href="#"
-                                    class="bg-blue-600 px-5 py-3 w-full text-center md:w-auto rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-blue-800">
-                                    Download Interview
-                                </a>
-                                <a href="#"
-                                    class="bg-blue-50 px-5 py-3 w-full text-center md:w-auto rounded-lg text-blue-600 text-xs tracking-wider font-semibold hover:bg-blue-600 hover:text-white">
-                                    Export Results
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div
-                        class="col-span-2 p-6 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-800 flex flex-col justify-between">
-                        <div class="flex flex-col">
-                            <p class="text-white font-bold">Interview Result Summary</p>
-                            <p class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio soluta saepe consequuntur
-                                facilis ab a. Molestiae ad saepe assumenda praesentium rem dolore? Exercitationem, neque
-                                obcaecati?
-                            </p>
-                        </div>
-                        <div class="flex justify-between items-end">
-                            <a href="#"
-                                class="bg-blue-800 px-4 py-3 rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-blue-600 hover:text-white">
-                                Learn More
-                            </a>
-                            <img src="https://atom.dzulfarizan.com/assets/calendar.png" alt="calendar"
-                                class="w-auto h-24 object-cover">
-                        </div>
-                    </div>
-
+                <div class="flex gap-2 md:gap-4">
+                  <a
+                    href="#"
+                    class="bg-blue-600 px-5 py-3 w-full text-center md:w-auto rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-blue-800"
+                  >
+                    Download Interview
+                  </a>
+                  <a
+                    href="#"
+                    class="bg-blue-50 px-5 py-3 w-full text-center md:w-auto rounded-lg text-blue-600 text-xs tracking-wider font-semibold hover:bg-blue-600 hover:text-white"
+                  >
+                    Export Results
+                  </a>
                 </div>
-                <!-- End First Row -->
-                <!-- Start Second Row -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 xl:p-0 gap-4 xl:gap-6">
-                    <div class="col-span-1 md:col-span-2 lg:col-span-4 flex justify-between">
-                        <h2 class="text-xs md:text-sm text-gray-700 font-bold tracking-wide md:tracking-wider">
-                            Score By Category
-                        </h2>
-                        <a href="#" class="text-xs text-gray-800 font-semibold uppercase">More</a>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-gray-50">
-                        <div class="flex justify-between items-start">
-                            <div class="flex flex-col">
-                                <p class="text-xs text-gray-600 tracking-wide">Eye Contact</p>
-                                <h3 class="mt-1 text-lg text-blue-500 font-bold">70%</h3>
-                                <span class="mt-4 text-xs text-gray-500">No eye contact at timestamps: 2:36, 7:30</span>
-                            </div>
-                            <div class="bg-blue-500 p-2 md:p-1 xl:p-2 rounded-md">
-                                <img src="https://atom.dzulfarizan.com/assets/dish-2.png" alt="icon"
-                                    class="w-auto h-8 md:h-6 xl:h-8 object-cover">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-gray-50">
-                        <div class="flex justify-between items-start">
-                            <div class="flex flex-col">
-                                <p class="text-xs text-gray-600 tracking-wide">Confidence/Flow Rating</p>
-                                <h3 class="mt-1 text-lg text-green-500 font-bold">Good</h3>
-                                <span class="mt-4 text-xs text-gray-500">Choppy wording at timestamps: 5:20</span>
-                            </div>
-                            <div class="bg-green-500 p-2 md:p-1 xl:p-2 rounded-md">
-                                <img src="https://atom.dzulfarizan.com/assets/grocery.png" alt="icon"
-                                    class="w-auto h-8 md:h-6 xl:h-8 object-cover">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-gray-50">
-                        <div class="flex justify-between items-start">
-                            <div class="flex flex-col">
-                                <p class="text-xs text-gray-600 tracking-wide">Expression Rating</p>
-                                <h3 class="mt-1 text-lg text-yellow-500 font-bold">Ok</h3>
-                                <span class="mt-4 text-xs text-gray-600">Expression distribution: 50% neutral, 50%
-                                    smiling</span>
-                            </div>
-                            <div class="bg-yellow-500 p-2 md:p-1 xl:p-2 rounded-md">
-                                <img src="https://atom.dzulfarizan.com/assets/gaming.png" alt="icon"
-                                    class="w-auto h-8 md:h-6 xl:h-8 object-cover">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-white p-6 rounded-xl border border-gray-50">
-                        <div class="flex justify-between items-start">
-                            <div class="flex flex-col">
-                                <p class="text-xs text-gray-600 tracking-wide">Filler Word Count</p>
-                                <h3 class="mt-1 text-lg text-indigo-500 font-bold">208</h3>
-                                <span class="mt-4 text-xs text-gray-500">Filler word types: "uh", "umm", ...</span>
-                            </div>
-                            <div class="bg-indigo-500 p-2 md:p-1 xl:p-2 rounded-md">
-                                <img src="https://atom.dzulfarizan.com/assets/holiday.png" alt="icon"
-                                    class="w-auto h-8 md:h-6 xl:h-8 object-cover">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Second Row -->
-                <!-- Start Third Row -->
-                <div class="grid grid-cols-1 md:grid-cols-5 items-start px-4 xl:p-0 gap-y-4 md:gap-6">
-                    <div class="col-start-1 col-end-5">
-                        <h2 class="text-xs md:text-sm text-gray-800 font-bold tracking-wide">Performance Summary</h2>
-                    </div>
-                    <div class="col-span-2 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6">
-                        <!-- <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 flex justify-between items-center">
-                            <div class="p-4 cursor-pointer border">
-                                <span class="text-xs text-gray-500 font-semibold">Daily</span>
-                                <h2 class="text-gray-800 font-bold tracking-wider">$ 27.80</h2>
-                            </div>
-                            <div class="p-4 cursor-pointer border">
-                                <span class="text-xs text-gray-500 font-semibold">Weekly</span>
-                                <h2 class="text-gray-800 font-bold tracking-wider">$ 192.92</h2>
-                            </div>
-                            <div class="p-4 cursor-pointer border">
-                                <span class="text-xs text-gray-500 font-semibold">Monthly</span>
-                                <h2 class="text-gray-800 font-bold tracking-wider">$ 501.10</h2>
-                            </div>
-                        </div> -->
-                        <!-- <canvas id="myChart"></canvas> -->
-                        <canvas #radarChart></canvas>
-                    </div>
-                    <div class="col-span-3 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6">
-                        <div class="flex justify-between items-center">
-                            <h2 class="text-sm text-gray-600 font-bold tracking-wide">Recent Interviews</h2>
-                            <a href="#"
-                                class="px-4 py-2 text-xs bg-blue-100 text-blue-500 rounded uppercase tracking-wider font-semibold hover:bg-blue-300">More</a>
-                        </div>
-                        <ul class="divide-y-2 divide-gray-100 overflow-x-auto w-full">
-                            <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold">
-                                <p class="px-4 font-semibold">Yesterday</p>
-                                <p class="px-4 text-gray-600">Apple</p>
-                                <p class="px-4 tracking-wider">Software Dev.</p>
-                                <p class="px-4 text-blue-600">View Results</p>
-                                <p class="md:text-base text-gray-800 flex items-center gap-2">
-                                    A+
-                                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none"
-                                        viewBox="0 0 24 24" stroke="currentColor">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M19 9l-7 7-7-7" />
-                                    </svg> -->
-                                </p>
-                            </li>
-                            <!-- <li class="py-3 flex justify-between text-sm text-gray-500 font-semibold">
-                                <p class="px-4 font-semibold">2 Days Ago</p>
-                                <p class="px-4 text-gray-600">Intel</p>
-                                <p class="px-4 tracking-wider">Junior Software Dev.</p>
-                                <p class="px-4 text-blue-600">View Results</p>
-                                <p class="md:text-base text-gray-800 flex items-center gap-2">
-                                    B
-                                </p>
-                            </li> -->
-                        </ul>
-                    </div>
-                </div>
-                <!-- End Third Row -->
+              </div>
             </div>
+            <div
+              class="col-span-2 p-6 rounded-2xl bg-gradient-to-r from-blue-500 to-blue-800 flex flex-col justify-between"
+            >
+              <div class="flex flex-col">
+                <p class="text-white font-bold">Question</p>
+                <p
+                  class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm"
+                >
+                  {{ result.question.question }}
+                </p>
+                <p class="text-white font-bold">Position</p>
+                <p
+                  class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm"
+                >
+                  {{ result.question.position }}
+                </p>
+                <p class="text-white font-bold">Companies</p>
+                <p
+                  class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm"
+                >
+                  <app-blob-text
+                    [color]="'bg-green-500'"
+                    [data]="result.question.companies"
+                  ></app-blob-text>
+                </p>
+                <p class="text-white font-bold">Timestamp</p>
+                <p
+                  class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm"
+                >
+                  {{ result.timestamp }}
+                </p>
+                <p class="text-white font-bold">Length</p>
+                <p
+                  class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm"
+                >
+                  {{ result.video_length }} seconds
+                </p>
+                <p class="text-white font-bold">Interview Result Summary</p>
+                <p
+                  class="mt-1 text-xs md:text-sm text-gray-50 font-light leading-tight max-w-sm"
+                >
+                  {{ truncatedSummary }}
+                </p>
+              </div>
+              <div class="flex justify-between items-end">
+                <a
+                  href="#"
+                  class="bg-blue-800 px-4 py-3 rounded-lg text-white text-xs tracking-wider font-semibold hover:bg-blue-600 hover:text-white"
+                >
+                  Learn More
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- End First Row -->
+          <!-- Start Second Row -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-4 xl:p-0 gap-4 xl:gap-6"
+          >
+            <div
+              class="col-span-1 md:col-span-2 lg:col-span-4 flex justify-between"
+            >
+              <h2
+                class="text-xs md:text-sm text-gray-700 font-bold tracking-wide md:tracking-wider"
+              >
+                Score By Category
+              </h2>
+            </div>
+
+            <app-result-score-categories
+              [category]="'Overall Analysis'"
+              [score]="result.analysis.overall.overall_score"
+              [description]="'Weighted average between categories'"
+              [icon_link]="
+                'assets/icons/results-page/overall-analysis-icon.svg'
+              "
+            ></app-result-score-categories>
+            <app-result-score-categories
+              [category]="'Contextual Analysis'"
+              [score]="result.analysis.context.context_score"
+              [description]="'Analysis of the transcript'"
+              [icon_link]="
+                'assets/icons/results-page/context-analysis-icon.svg'
+              "
+            ></app-result-score-categories>
+            <app-result-score-categories
+              [category]="'Facial Expressions'"
+              [score]="result.analysis.video.video_score"
+              [description]="'Your visual emoitions throughout the interview'"
+              [icon_link]="'assets/icons/results-page/facial-analysis-icon.svg'"
+            ></app-result-score-categories>
+            <app-result-score-categories
+              [category]="'Confidence/Flow'"
+              [score]="result.analysis.audio.audio_score"
+              [description]="'Your fluency & tone throughout the interview'"
+              [icon_link]="'assets/icons/results-page/audio-analysis-icon.svg'"
+            ></app-result-score-categories>
+          </div>
+          <!-- End Second Row -->
+          <!-- Start Third Row -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-5 items-start px-4 xl:p-0 gap-y-4 md:gap-6"
+          >
+            <div class="col-start-1 col-end-5">
+              <h2
+                class="text-xs md:text-sm text-gray-800 font-bold tracking-wide"
+              >
+                Performance Summary
+              </h2>
+            </div>
+            <div
+              class="col-span-2 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6"
+            >
+              <canvas #videoChart></canvas>
+              <canvas #radarChart></canvas>
+            </div>
+            <div
+              class="col-span-2 bg-white p-6 rounded-xl border border-gray-50 flex flex-col space-y-6"
+            >
+              <canvas #videoChart></canvas>
+              <canvas #radarChart></canvas>
+            </div>
+          </div>
+          <!-- End Third Row -->
         </div>
+      </div>
     </div>
-</body>
+  </body>
+</div>

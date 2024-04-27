@@ -55,6 +55,7 @@ import { CustomInterviewModalComponent } from './components/custom-interview-mod
 import { GenerateCustomInterviewComponent } from './pages/generate-custom-interview/generate-custom-interview.component';
 import { HistoryListComponent } from './components/history-list/history-list.component';
 import { SpinnerComponent } from './components/spinner/spinner.component';
+import { ResultScoreCategoriesComponent } from './components/result-score-categories/result-score-categories.component';
 
 @NgModule({
   declarations: [
@@ -91,6 +92,7 @@ import { SpinnerComponent } from './components/spinner/spinner.component';
     GenerateCustomInterviewComponent,
     HistoryListComponent,
     SpinnerComponent,
+    ResultScoreCategoriesComponent,
   ],
   imports: [
     BrowserModule,
